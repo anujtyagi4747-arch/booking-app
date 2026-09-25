@@ -3591,3 +3591,2608 @@ button{
 }
 
 </style>
+<!-- ================= PART 11 : SUPPORT & ABOUT ================= -->
+
+<div class="info-modal" id="infoModal">
+
+  <div class="info-overlay" id="infoOverlay"></div>
+
+  <div class="info-sheet">
+
+    <button class="info-close" id="infoClose">×</button>
+
+    <div class="info-icon" id="infoIcon">?</div>
+
+    <p class="info-label" id="infoLabel">PAHADISTAY</p>
+
+    <h2 id="infoTitle">Help & Support</h2>
+
+    <p id="infoText">
+      Need help with your booking? Our support team
+      is available to assist you.
+    </p>
+
+
+    <div class="support-options" id="supportOptions">
+
+      <button>
+        <span>💬</span>
+        <div>
+          <strong>WhatsApp Support</strong>
+          <small>Chat with our support team</small>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button>
+        <span>✉️</span>
+        <div>
+          <strong>Email Support</strong>
+          <small>Get help by email</small>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button>
+        <span>📞</span>
+        <div>
+          <strong>Call Support</strong>
+          <small>Talk to our team</small>
+        </div>
+        <b>›</b>
+      </button>
+
+    </div>
+
+
+    <div class="about-content" id="aboutContent">
+
+      <div class="about-logo">⛰</div>
+
+      <h3>PahadiStay</h3>
+
+      <p>
+        Discover authentic homestays, peaceful mountain
+        escapes and beautiful places across Uttarakhand.
+      </p>
+
+      <div class="about-points">
+
+        <span>✦ Handpicked stays</span>
+        <span>✦ Local experiences</span>
+        <span>✦ Simple booking</span>
+
+      </div>
+
+      <small>Version 1.0 • Made for the mountains</small>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<style>
+
+/* ================= INFO MODAL ================= */
+
+.info-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+}
+
+.info-modal.show{
+  display:block;
+}
+
+.info-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(5px);
+}
+
+.info-sheet{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:min(480px,100%);
+  transform:translateX(-50%);
+  padding:25px 18px 30px;
+  border-radius:25px 25px 0 0;
+  background:#0b110e;
+  border-top:1px solid rgba(120,224,143,.15);
+  box-shadow:0 -15px 45px rgba(0,0,0,.45);
+}
+
+.info-close{
+  position:absolute;
+  right:16px;
+  top:14px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:#151d18;
+  color:#aab3ad;
+  font-size:21px;
+}
+
+.info-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  margin-bottom:12px;
+  border-radius:15px;
+  background:#183521;
+  color:#78e08f;
+  font-size:20px;
+  font-weight:900;
+}
+
+.info-label{
+  margin:0 0 4px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.info-sheet h2{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:21px;
+}
+
+.info-text{
+  margin:0 0 17px;
+  color:#77827c;
+  font-size:10px;
+  line-height:1.6;
+}
+
+
+/* SUPPORT */
+
+.support-options{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.support-options button{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  background:#101713;
+  text-align:left;
+}
+
+.support-options button > span{
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:#17251c;
+}
+
+.support-options button div{
+  flex:1;
+}
+
+.support-options strong{
+  display:block;
+  color:#fff;
+  font-size:10px;
+}
+
+.support-options small{
+  display:block;
+  margin-top:3px;
+  color:#69756f;
+  font-size:8px;
+}
+
+.support-options b{
+  color:#69756f;
+  font-size:19px;
+}
+
+
+/* ABOUT */
+
+.about-content{
+  display:none;
+  text-align:center;
+}
+
+.about-logo{
+  width:65px;
+  height:65px;
+  margin:0 auto 10px;
+  display:grid;
+  place-items:center;
+  border-radius:20px;
+  background:#173520;
+  color:#78e08f;
+  font-size:29px;
+}
+
+.about-content h3{
+  margin:0;
+  color:#fff;
+  font-size:18px;
+}
+
+.about-content p{
+  margin:9px auto 15px;
+  max-width:280px;
+  color:#77827c;
+  font-size:10px;
+  line-height:1.7;
+}
+
+.about-points{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  margin-bottom:15px;
+}
+
+.about-points span{
+  color:#aeb7b1;
+  font-size:9px;
+}
+
+.about-content > small{
+  color:#4f5b54;
+  font-size:8px;
+}
+
+</style>
+<script>
+/* ================= PART 12 : MAIN NAVIGATION ================= */
+
+const homeScreen = document.querySelector(".app");
+const explorePage = document.getElementById("explorePage");
+const detailPage = document.getElementById("detailPage");
+const bookingPage = document.getElementById("bookingPage");
+const guestDetailsPage = document.getElementById("guestDetailsPage");
+const successPage = document.getElementById("successPage");
+const bookingsPage = document.getElementById("bookingsPage");
+const profilePage = document.getElementById("profilePage");
+const savedPage = document.getElementById("savedPage");
+
+const featuredSection = document.getElementById("featuredSection");
+
+
+/* ---------- HIDE ALL INNER PAGES ---------- */
+
+function hidePages(){
+
+  explorePage.style.display = "none";
+  detailPage.style.display = "none";
+  bookingPage.style.display = "none";
+  guestDetailsPage.style.display = "none";
+  successPage.style.display = "none";
+  bookingsPage.style.display = "none";
+  profilePage.style.display = "none";
+  savedPage.style.display = "none";
+
+}
+
+
+/* ---------- HOME ---------- */
+
+function showHome(){
+
+  hidePages();
+
+  featuredSection.style.display = "block";
+
+  document.querySelector(".header").style.display = "flex";
+  document.querySelector(".hero").style.display = "block";
+  document.querySelector(".search-wrap").style.display = "block";
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.style.display = "block";
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ---------- EXPLORE ---------- */
+
+function showExplore(){
+
+  hidePages();
+
+  document.querySelector(".header").style.display = "none";
+  document.querySelector(".hero").style.display = "none";
+  document.querySelector(".search-wrap").style.display = "none";
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.style.display = "none";
+  });
+
+  explorePage.style.display = "block";
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ---------- PROFILE ---------- */
+
+function showProfile(){
+
+  hidePages();
+
+  document.querySelector(".header").style.display = "none";
+  document.querySelector(".hero").style.display = "none";
+  document.querySelector(".search-wrap").style.display = "none";
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.style.display = "none";
+  });
+
+  profilePage.style.display = "block";
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ---------- SAVED ---------- */
+
+function showSaved(){
+
+  hidePages();
+
+  document.querySelector(".header").style.display = "none";
+  document.querySelector(".hero").style.display = "none";
+  document.querySelector(".search-wrap").style.display = "none";
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.style.display = "none";
+  });
+
+  savedPage.style.display = "block";
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ---------- EXPLORE DESTINATION ---------- */
+
+document.querySelectorAll(".destination").forEach(destination=>{
+
+  destination.addEventListener("click",()=>{
+
+    showExplore();
+
+    const city = destination.dataset.city;
+
+    setTimeout(()=>{
+
+      document.querySelectorAll(".quick-filter")
+        .forEach(btn=>btn.classList.remove("active"));
+
+      document.querySelectorAll(".quick-filter")
+        .forEach(btn=>{
+
+          if(btn.dataset.filter === city.toLowerCase()){
+            btn.classList.add("active");
+          }
+
+        });
+
+    },50);
+
+  });
+
+});
+
+
+/* ---------- SEE ALL ---------- */
+
+document.getElementById("seeAllBtn").addEventListener(
+  "click",
+  showExplore
+);
+
+
+/* ---------- HOME SEARCH ---------- */
+
+document.getElementById("searchBtn").addEventListener("click",()=>{
+
+  const value =
+    document.getElementById("homeSearch").value.trim();
+
+  showExplore();
+
+  if(value){
+
+    const exploreSearch =
+      document.getElementById("exploreSearch");
+
+    exploreSearch.value = value;
+
+    exploreSearch.dispatchEvent(
+      new Event("input")
+    );
+
+  }
+
+});
+
+
+/* ---------- PROFILE BUTTON ---------- */
+
+document.getElementById("profileBtn").addEventListener(
+  "click",
+  showProfile
+);
+
+
+/* ---------- BACK BUTTONS ---------- */
+
+document.getElementById("exploreBack").addEventListener(
+  "click",
+  showHome
+);
+
+document.getElementById("profileBack").addEventListener(
+  "click",
+  showHome
+);
+
+document.getElementById("savedBack").addEventListener(
+  "click",
+  showProfile
+);
+
+
+/* ---------- PROFILE BOOKINGS ---------- */
+
+document.getElementById("profileBookingsBtn")
+  .addEventListener("click",()=>{
+
+    hidePages();
+
+    bookingsPage.style.display = "block";
+
+    document.querySelector(".header").style.display = "none";
+    document.querySelector(".hero").style.display = "none";
+    document.querySelector(".search-wrap").style.display = "none";
+
+    document.querySelectorAll(".section")
+      .forEach(section=>section.style.display="none");
+
+    window.scrollTo(0,0);
+
+  });
+
+
+/* ---------- PROFILE SAVED ---------- */
+
+document.getElementById("profileSavedBtn")
+  .addEventListener("click",showSaved);
+
+
+/* ---------- BOOKINGS HOME ---------- */
+
+document.getElementById("bookingsHome")
+  .addEventListener("click",showHome);
+
+
+/* ---------- EXPLORE FROM SAVED ---------- */
+
+document.getElementById("savedExplore")
+  .addEventListener("click",showExplore);
+
+
+/* ---------- EXPLORE FROM BOOKINGS ---------- */
+
+document.getElementById("exploreFromBookings")
+  .addEventListener("click",showExplore);
+
+
+/* ---------- SUPPORT MODAL ---------- */
+
+document.getElementById("helpBtn")
+  .addEventListener("click",()=>{
+
+    document.getElementById("infoModal")
+      .classList.add("show");
+
+    document.getElementById("supportOptions")
+      .style.display="flex";
+
+    document.getElementById("aboutContent")
+      .style.display="none";
+
+    document.getElementById("infoIcon").textContent="?";
+    document.getElementById("infoLabel").textContent="SUPPORT";
+    document.getElementById("infoTitle").textContent="Help & Support";
+
+  });
+
+
+/* ---------- ABOUT MODAL ---------- */
+
+document.getElementById("aboutBtn")
+  .addEventListener("click",()=>{
+
+    document.getElementById("infoModal")
+      .classList.add("show");
+
+    document.getElementById("supportOptions")
+      .style.display="none";
+
+    document.getElementById("aboutContent")
+      .style.display="block";
+
+    document.getElementById("infoIcon").textContent="i";
+    document.getElementById("infoLabel").textContent="ABOUT US";
+    document.getElementById("infoTitle").textContent="About PahadiStay";
+
+  });
+
+
+/* ---------- CLOSE MODAL ---------- */
+
+document.getElementById("infoClose")
+  .addEventListener("click",()=>{
+
+    document.getElementById("infoModal")
+      .classList.remove("show");
+
+  });
+
+document.getElementById("infoOverlay")
+  .addEventListener("click",()=>{
+
+    document.getElementById("infoModal")
+      .classList.remove("show");
+
+  });
+
+</script>
+<script>
+/* ================= PART 13 : EXPLORE + STAY DETAILS ================= */
+
+const stayData = {
+
+  "Riverstone Retreat":{
+    city:"Rishikesh",
+    location:"Tapovan, Rishikesh",
+    price:1899,
+    rating:"4.8",
+    image:"https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=85",
+    description:"A peaceful riverside retreat surrounded by greenery, mountain views and the calm atmosphere of Rishikesh."
+  },
+
+  "Pine Valley House":{
+    city:"Mussoorie",
+    location:"Landour Road, Mussoorie",
+    price:2299,
+    rating:"4.7",
+    image:"https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+    description:"A cozy mountain home with beautiful valley views, peaceful surroundings and a perfect stay for couples and families."
+  },
+
+  "Lakeview Nest":{
+    city:"Nainital",
+    location:"Mallital, Nainital",
+    price:2699,
+    rating:"4.9",
+    image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    description:"Wake up to peaceful lake views and fresh mountain air at this beautiful Nainital homestay."
+  },
+
+  "Snow Peak Cottage":{
+    city:"Auli",
+    location:"Auli Road, Uttarakhand",
+    price:3199,
+    rating:"4.9",
+    image:"https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=900&q=85",
+    description:"A scenic mountain cottage perfect for enjoying snowfall, snow-covered peaks and Himalayan sunsets."
+  },
+
+  "Pahadi Pearl Cottage":{
+    city:"Mukteshwar",
+    location:"Mukteshwar, Uttarakhand",
+    price:2499,
+    rating:"4.9",
+    image:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85",
+    description:"A premium pahadi cottage offering peaceful views, comfortable rooms and an authentic Himalayan experience."
+  }
+
+};
+
+
+/* ---------- OPEN STAY DETAILS ---------- */
+
+function openStay(name){
+
+  const stay = stayData[name];
+
+  if(!stay) return;
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  detailPage.style.display="block";
+
+  document.getElementById("detailImage").src=stay.image;
+  document.getElementById("detailName").textContent=name;
+  document.getElementById("detailLocation").textContent=stay.location;
+  document.getElementById("detailRating").textContent="★ "+stay.rating;
+  document.getElementById("detailPrice").textContent="₹"+stay.price;
+  document.getElementById("detailDescription").textContent=stay.description;
+
+  window.PahadiStay = window.PahadiStay || {};
+
+  window.PahadiStay.currentStay={
+    name:name,
+    city:stay.city,
+    location:stay.location,
+    price:stay.price,
+    rating:stay.rating,
+    image:stay.image
+  };
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ---------- FEATURED VIEW STAY ---------- */
+
+document.querySelectorAll(".view-stay")
+.forEach(button=>{
+
+  button.addEventListener("click",(event)=>{
+
+    event.stopPropagation();
+
+    const card=button.closest(".stay-card");
+
+    if(!card) return;
+
+    const name=card.dataset.stay;
+
+    openStay(name);
+
+  });
+
+});
+
+
+/* ---------- EXPLORE VIEW STAY ---------- */
+
+document.querySelectorAll(".explore-view")
+.forEach(button=>{
+
+  button.addEventListener("click",(event)=>{
+
+    event.stopPropagation();
+
+    const card=button.closest(".explore-card");
+
+    if(!card) return;
+
+    const name=card.dataset.stay;
+
+    openStay(name);
+
+  });
+
+});
+
+
+/* ---------- WHOLE STAY CARD ---------- */
+
+document.querySelectorAll(".stay-card")
+.forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    const name=card.dataset.stay;
+
+    openStay(name);
+
+  });
+
+});
+
+
+document.querySelectorAll(".explore-card")
+.forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    const name=card.dataset.stay;
+
+    openStay(name);
+
+  });
+
+});
+
+
+/* ---------- DETAIL BACK ---------- */
+
+document.getElementById("detailBack")
+.addEventListener("click",()=>{
+
+  showExplore();
+
+});
+
+
+/* ---------- EXPLORE SEARCH ---------- */
+
+const exploreSearch =
+  document.getElementById("exploreSearch");
+
+const exploreCards =
+  document.querySelectorAll(".explore-card");
+
+const resultCount =
+  document.getElementById("resultCount");
+
+const resultTitle =
+  document.getElementById("resultTitle");
+
+
+function filterExplore(){
+
+  const value =
+    exploreSearch.value.trim().toLowerCase();
+
+  let visible=0;
+
+  exploreCards.forEach(card=>{
+
+    const name =
+      card.dataset.stay.toLowerCase();
+
+    const city =
+      card.dataset.city.toLowerCase();
+
+    if(
+      value==="" ||
+      name.includes(value) ||
+      city.includes(value)
+    ){
+
+      card.style.display="block";
+      visible++;
+
+    }else{
+
+      card.style.display="none";
+
+    }
+
+  });
+
+  resultCount.textContent=visible+" stays";
+
+  if(value){
+
+    resultTitle.textContent="Search results";
+
+  }else{
+
+    resultTitle.textContent="Explore stays";
+
+  }
+
+}
+
+
+exploreSearch.addEventListener(
+  "input",
+  filterExplore
+);
+
+
+/* ---------- QUICK FILTERS ---------- */
+
+document.querySelectorAll(".quick-filter")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    document.querySelectorAll(".quick-filter")
+      .forEach(btn=>btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    const filter =
+      button.dataset.filter.toLowerCase();
+
+    exploreSearch.value =
+      filter==="all" ? "" : filter;
+
+    filterExplore();
+
+  });
+
+});
+
+
+/* ---------- INITIAL FILTER ---------- */
+
+filterExplore();
+
+
+/* ---------- DETAIL SAVE BUTTON ---------- */
+
+document.getElementById("detailSave")
+.addEventListener("click",()=>{
+
+  const stay =
+    window.PahadiStay?.currentStay;
+
+  if(!stay) return;
+
+  let saved =
+    JSON.parse(
+      localStorage.getItem("pahadi_saved") || "[]"
+    );
+
+  const exists =
+    saved.some(item=>item.name===stay.name);
+
+  if(exists){
+
+    saved=saved.filter(
+      item=>item.name!==stay.name
+    );
+
+    document.getElementById("detailSave")
+      .textContent="♡";
+
+  }else{
+
+    saved.push(stay);
+
+    document.getElementById("detailSave")
+      .textContent="♥";
+
+  }
+
+  localStorage.setItem(
+    "pahadi_saved",
+    JSON.stringify(saved)
+  );
+
+});
+
+
+/* ---------- HOME SEARCH ENTER KEY ---------- */
+
+document.getElementById("homeSearch")
+.addEventListener("keydown",(event)=>{
+
+  if(event.key==="Enter"){
+
+    document.getElementById("searchBtn").click();
+
+  }
+
+});
+
+</script>
+<script>
+/* ================= PART 14 : BOOKING SYSTEM ================= */
+
+const ps = window.PahadiStay || {};
+
+ps.guests = ps.guests || 2;
+ps.rooms = ps.rooms || 1;
+ps.checkIn = ps.checkIn || "";
+ps.checkOut = ps.checkOut || "";
+
+
+/* ---------- BOOK NOW ---------- */
+
+document.getElementById("bookNowBtn")
+.addEventListener("click",()=>{
+
+  const stay = ps.currentStay;
+
+  if(!stay){
+
+    openStay("Riverstone Retreat");
+    return;
+
+  }
+
+  document.getElementById("bookingStayImage").src =
+    stay.image;
+
+  document.getElementById("bookingStayName").textContent =
+    stay.name;
+
+  document.getElementById("bookingStayLocation").textContent =
+    stay.location;
+
+  document.getElementById("bookingPagePrice").textContent =
+    "₹"+stay.price;
+
+  ps.guests = 2;
+  ps.rooms = 1;
+
+  document.getElementById("guestCount").textContent =
+    ps.guests;
+
+  document.getElementById("roomCount").textContent =
+    ps.rooms;
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  bookingPage.style.display="block";
+
+  updateBookingPrice();
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- BOOKING BACK ---------- */
+
+document.getElementById("bookingBack")
+.addEventListener("click",()=>{
+
+  detailPage.style.display="block";
+
+  bookingPage.style.display="none";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- GUEST PLUS ---------- */
+
+document.getElementById("guestPlus")
+.addEventListener("click",()=>{
+
+  if(ps.guests < 10){
+
+    ps.guests++;
+
+    document.getElementById("guestCount")
+      .textContent=ps.guests;
+
+    updateBookingPrice();
+
+  }
+
+});
+
+
+/* ---------- GUEST MINUS ---------- */
+
+document.getElementById("guestMinus")
+.addEventListener("click",()=>{
+
+  if(ps.guests > 1){
+
+    ps.guests--;
+
+    document.getElementById("guestCount")
+      .textContent=ps.guests;
+
+    updateBookingPrice();
+
+  }
+
+});
+
+
+/* ---------- ROOM PLUS ---------- */
+
+document.getElementById("roomPlus")
+.addEventListener("click",()=>{
+
+  if(ps.rooms < 5){
+
+    ps.rooms++;
+
+    document.getElementById("roomCount")
+      .textContent=ps.rooms;
+
+    updateBookingPrice();
+
+  }
+
+});
+
+
+/* ---------- ROOM MINUS ---------- */
+
+document.getElementById("roomMinus")
+.addEventListener("click",()=>{
+
+  if(ps.rooms > 1){
+
+    ps.rooms--;
+
+    document.getElementById("roomCount")
+      .textContent=ps.rooms;
+
+    updateBookingPrice();
+
+  }
+
+});
+
+
+/* ---------- DATE FORMAT ---------- */
+
+function formatDate(value){
+
+  if(!value) return "Select date";
+
+  const date = new Date(value);
+
+  return date.toLocaleDateString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    }
+  );
+
+}
+
+
+/* ---------- CALCULATE DAYS ---------- */
+
+function getNights(){
+
+  const inDate =
+    document.getElementById("checkIn").value;
+
+  const outDate =
+    document.getElementById("checkOut").value;
+
+  if(!inDate || !outDate) return 1;
+
+  const start =
+    new Date(inDate);
+
+  const end =
+    new Date(outDate);
+
+  const difference =
+    end-start;
+
+  const nights =
+    Math.ceil(
+      difference /
+      (1000*60*60*24)
+    );
+
+  return nights > 0 ? nights : 1;
+
+}
+
+
+/* ---------- UPDATE BOOKING PRICE ---------- */
+
+function updateBookingPrice(){
+
+  const stay = ps.currentStay;
+
+  if(!stay) return;
+
+  const nights = getNights();
+
+  const total =
+    stay.price *
+    nights *
+    ps.rooms;
+
+  const priceElement =
+    document.getElementById("bookingTotal");
+
+  if(priceElement){
+
+    priceElement.textContent =
+      "₹"+total.toLocaleString("en-IN");
+
+  }
+
+  const nightElement =
+    document.getElementById("bookingNights");
+
+  if(nightElement){
+
+    nightElement.textContent =
+      nights+" night"+(nights>1?"s":"");
+
+  }
+
+}
+
+
+/* ---------- CHECK IN ---------- */
+
+document.getElementById("checkIn")
+.addEventListener("change",()=>{
+
+  const value =
+    document.getElementById("checkIn").value;
+
+  ps.checkIn=value;
+
+  document.getElementById("checkInText")
+    .textContent=formatDate(value);
+
+  updateBookingPrice();
+
+});
+
+
+/* ---------- CHECK OUT ---------- */
+
+document.getElementById("checkOut")
+.addEventListener("change",()=>{
+
+  const value =
+    document.getElementById("checkOut").value;
+
+  ps.checkOut=value;
+
+  document.getElementById("checkOutText")
+    .textContent=formatDate(value);
+
+  updateBookingPrice();
+
+});
+
+
+/* ---------- CONTINUE BOOKING ---------- */
+
+document.getElementById("continueBooking")
+.addEventListener("click",()=>{
+
+  const checkIn =
+    document.getElementById("checkIn").value;
+
+  const checkOut =
+    document.getElementById("checkOut").value;
+
+  if(!checkIn || !checkOut){
+
+    alert("Please select check-in and check-out dates.");
+
+    return;
+
+  }
+
+  if(new Date(checkOut) <= new Date(checkIn)){
+
+    alert("Check-out date must be after check-in date.");
+
+    return;
+
+  }
+
+  ps.checkIn=checkIn;
+  ps.checkOut=checkOut;
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  guestDetailsPage.style.display="block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- SAVE BOOKING PRICE FOR NEXT PART ---------- */
+
+window.PahadiStay = ps;
+
+</script>
+<script>
+/* ================= PART 15 : GUEST DETAILS + CONFIRM ================= */
+
+const bookingState = window.PahadiStay || {};
+
+
+/* ---------- GUEST DETAILS BACK ---------- */
+
+document.getElementById("detailsBack")
+.addEventListener("click",()=>{
+
+  guestDetailsPage.style.display="none";
+  bookingPage.style.display="block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- UPDATE BOOKING SUMMARY ---------- */
+
+function updateGuestSummary(){
+
+  const stay = bookingState.currentStay;
+
+  if(!stay) return;
+
+  const checkIn =
+    document.getElementById("checkIn").value;
+
+  const checkOut =
+    document.getElementById("checkOut").value;
+
+  const nights =
+    getNights();
+
+  const total =
+    stay.price *
+    nights *
+    bookingState.rooms;
+
+  document.getElementById("summaryStay")
+    .textContent=stay.name;
+
+  document.getElementById("summaryDates")
+    .textContent=
+      formatDate(checkIn)+" → "+formatDate(checkOut);
+
+  document.getElementById("summaryGuests")
+    .textContent=
+      bookingState.guests+" Guests • "+
+      bookingState.rooms+" Room"+
+      (bookingState.rooms>1?"s":"");
+
+  document.getElementById("summaryTotal")
+    .textContent=
+      "₹"+total.toLocaleString("en-IN");
+
+}
+
+
+/* ---------- OPEN GUEST DETAILS ---------- */
+
+document.getElementById("continueBooking")
+.addEventListener("click",()=>{
+
+  const checkIn =
+    document.getElementById("checkIn").value;
+
+  const checkOut =
+    document.getElementById("checkOut").value;
+
+  if(!checkIn || !checkOut){
+
+    alert("Please select your dates first.");
+    return;
+
+  }
+
+  if(new Date(checkOut)<=new Date(checkIn)){
+
+    alert("Please select a valid check-out date.");
+    return;
+
+  }
+
+  updateGuestSummary();
+
+});
+
+
+/* ---------- CONFIRM BOOKING ---------- */
+
+document.getElementById("confirmBooking")
+.addEventListener("click",()=>{
+
+  const name =
+    document.getElementById("guestName").value.trim();
+
+  const phone =
+    document.getElementById("guestPhone").value.trim();
+
+  const email =
+    document.getElementById("guestEmail").value.trim();
+
+  if(!name){
+
+    alert("Please enter your full name.");
+    return;
+
+  }
+
+  if(phone.length < 10){
+
+    alert("Please enter a valid phone number.");
+    return;
+
+  }
+
+  if(!email || !email.includes("@")){
+
+    alert("Please enter a valid email address.");
+    return;
+
+  }
+
+
+  const stay =
+    bookingState.currentStay;
+
+  const checkIn =
+    document.getElementById("checkIn").value;
+
+  const checkOut =
+    document.getElementById("checkOut").value;
+
+  const nights =
+    getNights();
+
+  const total =
+    stay.price *
+    nights *
+    bookingState.rooms;
+
+
+  /* ---------- CREATE BOOKING ID ---------- */
+
+  const bookingId =
+    "PS"+Date.now().toString().slice(-8);
+
+
+  /* ---------- SAVE BOOKING ---------- */
+
+  const booking={
+
+    id:bookingId,
+
+    name:stay.name,
+
+    city:stay.city,
+
+    location:stay.location,
+
+    image:stay.image,
+
+    checkIn:checkIn,
+
+    checkOut:checkOut,
+
+    guests:bookingState.guests,
+
+    rooms:bookingState.rooms,
+
+    nights:nights,
+
+    total:total,
+
+    guestName:name,
+
+    phone:phone,
+
+    email:email,
+
+    request:
+      document.getElementById("guestRequest").value.trim(),
+
+    createdAt:new Date().toISOString()
+
+  };
+
+
+  localStorage.setItem(
+    "pahadi_booking",
+    JSON.stringify(booking)
+  );
+
+  bookingState.booking=booking;
+
+
+  /* ---------- SUCCESS PAGE ---------- */
+
+  document.getElementById("bookingId")
+    .textContent=bookingId;
+
+  document.getElementById("successImage").src=
+    stay.image;
+
+  document.getElementById("successStay")
+    .textContent=stay.name;
+
+  document.getElementById("successLocation")
+    .textContent=stay.location;
+
+  document.getElementById("successCheckIn")
+    .textContent=formatDate(checkIn);
+
+  document.getElementById("successCheckOut")
+    .textContent=formatDate(checkOut);
+
+  document.getElementById("successGuests")
+    .textContent=
+      bookingState.guests+" Guests • "+
+      bookingState.rooms+" Room"+
+      (bookingState.rooms>1?"s":"");
+
+  document.getElementById("successTotal")
+    .textContent=
+      "₹"+total.toLocaleString("en-IN");
+
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  successPage.style.display="block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- SUCCESS → BOOKINGS ---------- */
+
+document.getElementById("myBookingsBtn")
+.addEventListener("click",()=>{
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  bookingsPage.style.display="block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- SUCCESS → HOME ---------- */
+
+document.getElementById("homeFromSuccess")
+.addEventListener("click",()=>{
+
+  showHome();
+
+});
+
+
+/* ---------- UPDATE GLOBAL STATE ---------- */
+
+window.PahadiStay=bookingState;
+
+</script>
+<script>
+/* ================= PART 16 : MY BOOKINGS ================= */
+
+function loadMyBooking(){
+
+  const savedBooking =
+    localStorage.getItem("pahadi_booking");
+
+  const bookingList =
+    document.getElementById("bookingList");
+
+  const emptyBookings =
+    document.getElementById("emptyBookings");
+
+  const bookingCard =
+    document.getElementById("myBookingCard");
+
+
+  if(!savedBooking){
+
+    bookingList.style.display="none";
+    emptyBookings.style.display="block";
+
+    return;
+
+  }
+
+
+  const booking =
+    JSON.parse(savedBooking);
+
+
+  bookingList.style.display="block";
+  emptyBookings.style.display="none";
+
+
+  document.getElementById("myBookingImage").src =
+    booking.image;
+
+  document.getElementById("myBookingLocation")
+    .textContent =
+      booking.location;
+
+  document.getElementById("myBookingName")
+    .textContent =
+      booking.name;
+
+  document.getElementById("myBookingCheckIn")
+    .textContent =
+      formatDate(booking.checkIn);
+
+  document.getElementById("myBookingCheckOut")
+    .textContent =
+      formatDate(booking.checkOut);
+
+  document.getElementById("myBookingTotal")
+    .textContent =
+      "₹"+booking.total.toLocaleString("en-IN");
+
+
+  bookingCard.style.display="block";
+
+}
+
+
+/* ---------- OPEN BOOKINGS ---------- */
+
+function openBookings(){
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  bookingsPage.style.display="block";
+
+  loadMyBooking();
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* ---------- PROFILE → BOOKINGS ---------- */
+
+document.getElementById("profileBookingsBtn")
+.addEventListener("click",openBookings);
+
+
+/* ---------- SUCCESS → BOOKINGS ---------- */
+
+document.getElementById("myBookingsBtn")
+.addEventListener("click",openBookings);
+
+
+/* ---------- BOOKING DETAILS ---------- */
+
+document.getElementById("bookingDetailsBtn")
+.addEventListener("click",()=>{
+
+  const savedBooking =
+    localStorage.getItem("pahadi_booking");
+
+  if(!savedBooking){
+
+    alert("No booking found.");
+    return;
+
+  }
+
+
+  const booking =
+    JSON.parse(savedBooking);
+
+
+  const stay = {
+
+    name:booking.name,
+
+    city:booking.city,
+
+    location:booking.location,
+
+    price:
+      booking.total / booking.nights / booking.rooms,
+
+    rating:"4.9",
+
+    image:booking.image
+
+  };
+
+
+  window.PahadiStay.currentStay=stay;
+
+
+  document.getElementById("detailImage").src =
+    booking.image;
+
+  document.getElementById("detailName")
+    .textContent =
+      booking.name;
+
+  document.getElementById("detailLocation")
+    .textContent =
+      booking.location;
+
+  document.getElementById("detailRating")
+    .textContent =
+      "★ "+stay.rating;
+
+  document.getElementById("detailPrice")
+    .textContent =
+      "₹"+stay.price;
+
+
+  hidePages();
+
+  document.querySelector(".header").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector(".search-wrap").style.display="none";
+
+  document.querySelectorAll(".section")
+    .forEach(section=>section.style.display="none");
+
+  detailPage.style.display="block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+/* ---------- LOAD BOOKING ON PAGE START ---------- */
+
+loadMyBooking();
+
+
+/* ---------- UPDATE PROFILE BOOKING COUNT ---------- */
+
+function updateProfileStats(){
+
+  const booking =
+    localStorage.getItem("pahadi_booking");
+
+  const saved =
+    JSON.parse(
+      localStorage.getItem("pahadi_saved") || "[]"
+    );
+
+
+  const bookingCount =
+    document.getElementById("profileBookings");
+
+  const savedCount =
+    document.getElementById("profileSaved");
+
+
+  if(bookingCount){
+
+    bookingCount.textContent =
+      booking ? "1" : "0";
+
+  }
+
+
+  if(savedCount){
+
+    savedCount.textContent =
+      saved.length;
+
+  }
+
+}
+
+
+updateProfileStats();
+
+</script>
+<script>
+/* ================= PART 17 : SAVED STAYS ================= */
+
+function loadSavedStays(){
+
+  const saved =
+    JSON.parse(
+      localStorage.getItem("pahadi_saved") || "[]"
+    );
+
+  const list =
+    document.getElementById("savedList");
+
+  const empty =
+    document.getElementById("savedEmpty");
+
+
+  list.innerHTML="";
+
+
+  if(saved.length===0){
+
+    list.style.display="none";
+    empty.style.display="block";
+
+    updateProfileStats();
+
+    return;
+
+  }
+
+
+  list.style.display="block";
+  empty.style.display="none";
+
+
+  saved.forEach(stay=>{
+
+    const card =
+      document.createElement("div");
+
+    card.className="saved-card";
+
+    card.innerHTML=`
+
+      <div class="saved-image-wrap">
+
+        <img
+          class="saved-image"
+          src="${stay.image}"
+          alt="${stay.name}"
+        >
+
+        <button
+          class="saved-remove"
+          data-name="${stay.name}">
+          ♥
+        </button>
+
+      </div>
+
+      <div class="saved-info">
+
+        <div class="saved-location">
+          ${stay.location}
+        </div>
+
+        <h3>${stay.name}</h3>
+
+        <div class="saved-bottom">
+
+          <span>
+            <b>₹${Number(stay.price).toLocaleString("en-IN")}</b>
+            / night
+          </span>
+
+          <button
+            class="saved-view"
+            data-name="${stay.name}">
+            View Stay
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+    list.appendChild(card);
+
+  });
+
+
+  /* ---------- REMOVE SAVED ---------- */
+
+  list.querySelectorAll(".saved-remove")
+    .forEach(button=>{
+
+      button.addEventListener("click",()=>{
+
+        const name =
+          button.dataset.name;
+
+        let current =
+          JSON.parse(
+            localStorage.getItem("pahadi_saved") || "[]"
+          );
+
+        current =
+          current.filter(
+            item=>item.name!==name
+          );
+
+        localStorage.setItem(
+          "pahadi_saved",
+          JSON.stringify(current)
+        );
+
+        loadSavedStays();
+
+      });
+
+    });
+
+
+  /* ---------- OPEN SAVED STAY ---------- */
+
+  list.querySelectorAll(".saved-view")
+    .forEach(button=>{
+
+      button.addEventListener("click",()=>{
+
+        const name =
+          button.dataset.name;
+
+        openStay(name);
+
+      });
+
+    });
+
+
+  updateProfileStats();
+
+}
+
+
+/* ---------- OPEN SAVED PAGE ---------- */
+
+document.getElementById("profileSavedBtn")
+.addEventListener("click",()=>{
+
+  showSaved();
+
+  loadSavedStays();
+
+});
+
+
+/* ---------- SAVED BACK ---------- */
+
+document.getElementById("savedBack")
+.addEventListener("click",()=>{
+
+  showProfile();
+
+});
+
+
+/* ---------- SAVED EXPLORE ---------- */
+
+document.getElementById("savedExplore")
+.addEventListener("click",()=>{
+
+  showExplore();
+
+});
+
+
+/* ---------- FEATURED HEART BUTTONS ---------- */
+
+document.querySelectorAll(".heart-btn")
+.forEach(button=>{
+
+  button.addEventListener("click",(event)=>{
+
+    event.stopPropagation();
+
+    const card =
+      button.closest(".stay-card");
+
+    if(!card) return;
+
+    const name =
+      card.dataset.save;
+
+    const stay =
+      stayData[name];
+
+    if(!stay) return;
+
+
+    let saved =
+      JSON.parse(
+        localStorage.getItem("pahadi_saved") || "[]"
+      );
+
+
+    const exists =
+      saved.some(
+        item=>item.name===name
+      );
+
+
+    if(exists){
+
+      saved =
+        saved.filter(
+          item=>item.name!==name
+        );
+
+      button.textContent="♡";
+
+    }else{
+
+      saved.push({
+
+        name:name,
+
+        city:stay.city,
+
+        location:stay.location,
+
+        price:stay.price,
+
+        rating:stay.rating,
+
+        image:stay.image
+
+      });
+
+      button.textContent="♥";
+
+    }
+
+
+    localStorage.setItem(
+      "pahadi_saved",
+      JSON.stringify(saved)
+    );
+
+
+    updateProfileStats();
+
+  });
+
+});
+
+
+/* ---------- EXPLORE HEART BUTTONS ---------- */
+
+document.querySelectorAll(".explore-heart")
+.forEach(button=>{
+
+  button.addEventListener("click",(event)=>{
+
+    event.stopPropagation();
+
+    const card =
+      button.closest(".explore-card");
+
+    if(!card) return;
+
+    const name =
+      card.dataset.stay;
+
+    const stay =
+      stayData[name];
+
+    if(!stay) return;
+
+
+    let saved =
+      JSON.parse(
+        localStorage.getItem("pahadi_saved") || "[]"
+      );
+
+
+    const exists =
+      saved.some(
+        item=>item.name===name
+      );
+
+
+    if(exists){
+
+      saved =
+        saved.filter(
+          item=>item.name!==name
+        );
+
+      button.textContent="♡";
+
+    }else{
+
+      saved.push({
+
+        name:name,
+
+        city:stay.city,
+
+        location:stay.location,
+
+        price:stay.price,
+
+        rating:stay.rating,
+
+        image:stay.image
+
+      });
+
+      button.textContent="♥";
+
+    }
+
+
+    localStorage.setItem(
+      "pahadi_saved",
+      JSON.stringify(saved)
+    );
+
+
+    updateProfileStats();
+
+  });
+
+});
+
+
+/* ---------- REFRESH SAVED PAGE ---------- */
+
+loadSavedStays();
+
+</script>
+<script>
+/* ================= PART 18 : PROFILE + USER SYSTEM ================= */
+
+
+/* ---------- UPDATE PROFILE ---------- */
+
+function refreshProfile(){
+
+  const booking =
+    localStorage.getItem("pahadi_booking");
+
+  const saved =
+    JSON.parse(
+      localStorage.getItem("pahadi_saved") || "[]"
+    );
+
+  const profileBookings =
+    document.getElementById("profileBookings");
+
+  const profileSaved =
+    document.getElementById("profileSaved");
+
+  if(profileBookings){
+
+    profileBookings.textContent =
+      booking ? "1" : "0";
+
+  }
+
+  if(profileSaved){
+
+    profileSaved.textContent =
+      saved.length;
+
+  }
+
+}
+
+
+/* ---------- EDIT PROFILE ---------- */
+
+document.getElementById("editProfileBtn")
+.addEventListener("click",()=>{
+
+  const currentName =
+    localStorage.getItem("pahadi_user_name") || "Anuj";
+
+  const currentEmail =
+    localStorage.getItem("pahadi_user_email") ||
+    "Guest traveller";
+
+
+  const newName =
+    prompt(
+      "Enter your name:",
+      currentName
+    );
+
+
+  if(newName===null) return;
+
+  const cleanName =
+    newName.trim();
+
+  if(cleanName.length===0){
+
+    alert("Please enter a valid name.");
+    return;
+
+  }
+
+
+  const newEmail =
+    prompt(
+      "Enter your email:",
+      currentEmail
+    );
+
+
+  if(newEmail===null) return;
+
+
+  localStorage.setItem(
+    "pahadi_user_name",
+    cleanName
+  );
+
+  localStorage.setItem(
+    "pahadi_user_email",
+    newEmail.trim()
+  );
+
+
+  document.getElementById("profileName")
+    .textContent=cleanName;
+
+  document.getElementById("profileEmail")
+    .textContent=
+      newEmail.trim() || "Guest traveller";
+
+});
+
+
+/* ---------- LOAD PROFILE ---------- */
+
+function loadProfile(){
+
+  const name =
+    localStorage.getItem("pahadi_user_name");
+
+  const email =
+    localStorage.getItem("pahadi_user_email");
+
+
+  if(name){
+
+    document.getElementById("profileName")
+      .textContent=name;
+
+  }
+
+  if(email){
+
+    document.getElementById("profileEmail")
+      .textContent=email;
+
+  }
+
+
+  refreshProfile();
+
+}
+
+
+/* ---------- PROFILE OPEN ---------- */
+
+document.getElementById("profileBtn")
+.addEventListener("click",()=>{
+
+  showProfile();
+
+  loadProfile();
+
+});
+
+
+/* ---------- UPDATE HEART STATES ---------- */
+
+function updateHeartStates(){
+
+  const saved =
+    JSON.parse(
+      localStorage.getItem("pahadi_saved") || "[]"
+    );
+
+
+  document.querySelectorAll(".heart-btn")
+  .forEach(button=>{
+
+    const card =
+      button.closest(".stay-card");
+
+    if(!card) return;
+
+    const name =
+      card.dataset.save;
+
+    const exists =
+      saved.some(
+        item=>item.name===name
+      );
+
+    button.textContent =
+      exists ? "♥" : "♡";
+
+  });
+
+
+  document.querySelectorAll(".explore-heart")
+  .forEach(button=>{
+
+    const card =
+      button.closest(".explore-card");
+
+    if(!card) return;
+
+    const name =
+      card.dataset.stay;
+
+    const exists =
+      saved.some(
+        item=>item.name===name
+      );
+
+    button.textContent =
+      exists ? "♥" : "♡";
+
+  });
+
+
+  const detailSave =
+    document.getElementById("detailSave");
+
+  const current =
+    window.PahadiStay &&
+    window.PahadiStay.currentStay;
+
+
+  if(detailSave && current){
+
+    const exists =
+      saved.some(
+        item=>item.name===current.name
+      );
+
+    detailSave.textContent =
+      exists ? "♥" : "♡";
+
+  }
+
+}
+
+
+/* ---------- SUPPORT BUTTONS ---------- */
+
+document.querySelectorAll(
+  "#supportOptions button"
+)
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    const text =
+      button.textContent.toLowerCase();
+
+
+    if(text.includes("whatsapp")){
+
+      window.open(
+        "https://wa.me/919999999999",
+        "_blank"
+      );
+
+    }
+
+
+    if(text.includes("email")){
+
+      window.location.href =
+        "mailto:support@pahadistay.com";
+
+    }
+
+
+    if(text.includes("call")){
+
+      window.location.href =
+        "tel:+919999999999";
+
+    }
+
+  });
+
+});
+
+
+/* ---------- PROFILE INITIAL LOAD ---------- */
+
+loadProfile();
+
+updateHeartStates();
+
+
+/* ---------- REFRESH WHEN SAVED CHANGES ---------- */
+
+window.addEventListener(
+  "storage",
+  ()=>{
+    refreshProfile();
+    updateHeartStates();
+  }
+);
+
+</script>
+<style>
+
+/* ================= PART 19 : MOBILE BOTTOM NAV ================= */
+
+.bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(100%,480px);
+  height:72px;
+  background:rgba(8,13,11,.96);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+  z-index:999;
+}
+
+.bottom-item{
+  flex:1;
+  border:0;
+  background:transparent;
+  color:#718078;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  font-size:10px;
+  font-weight:700;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.bottom-item .nav-icon{
+  width:34px;
+  height:30px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  transition:.2s ease;
+}
+
+.bottom-item.active{
+  color:#8cffb7;
+}
+
+.bottom-item.active .nav-icon{
+  background:rgba(90,255,157,.10);
+  transform:translateY(-2px);
+}
+
+.bottom-spacer{
+  height:85px;
+}
+
+@media(min-width:481px){
+
+  .bottom-nav{
+    box-shadow:0 0 35px rgba(0,0,0,.45);
+  }
+
+}
+
+</style>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav" id="bottomNav">
+
+  <button class="bottom-item active" id="navHome">
+
+    <span class="nav-icon">⌂</span>
+
+    <span>Home</span>
+
+  </button>
+
+
+  <button class="bottom-item" id="navExplore">
+
+    <span class="nav-icon">⌕</span>
+
+    <span>Explore</span>
+
+  </button>
+
+
+  <button class="bottom-item" id="navSaved">
+
+    <span class="nav-icon">♡</span>
+
+    <span>Saved</span>
+
+  </button>
+
+
+  <button class="bottom-item" id="navBookings">
+
+    <span class="nav-icon">▣</span>
+
+    <span>Bookings</span>
+
+  </button>
+
+
+  <button class="bottom-item" id="navProfile">
+
+    <span class="nav-icon">●</span>
+
+    <span>Profile</span>
+
+  </button>
+
+</nav>
+
+
+<script>
+
+/* ---------- BOTTOM NAV ACTIVE ---------- */
+
+const bottomItems =
+  document.querySelectorAll(".bottom-item");
+
+
+function setActiveNav(id){
+
+  bottomItems.forEach(item=>{
+
+    item.classList.remove("active");
+
+  });
+
+  const active =
+    document.getElementById(id);
+
+  if(active){
+
+    active.classList.add("active");
+
+  }
+
+}
+
+
+/* ---------- HOME ---------- */
+
+document.getElementById("navHome")
+.addEventListener("click",()=>{
+
+  showHome();
+
+  setActiveNav("navHome");
+
+});
+
+
+/* ---------- EXPLORE ---------- */
+
+document.getElementById("navExplore")
+.addEventListener("click",()=>{
+
+  showExplore();
+
+  setActiveNav("navExplore");
+
+});
+
+
+/* ---------- SAVED ---------- */
+
+document.getElementById("navSaved")
+.addEventListener("click",()=>{
+
+  showSaved();
+
+  loadSavedStays();
+
+  setActiveNav("navSaved");
+
+});
+
+
+/* ---------- BOOKINGS ---------- */
+
+document.getElementById("navBookings")
+.addEventListener("click",()=>{
+
+  openBookings();
+
+  setActiveNav("navBookings");
+
+});
+
+
+/* ---------- PROFILE ---------- */
+
+document.getElementById("navProfile")
+.addEventListener("click",()=>{
+
+  showProfile();
+
+  loadProfile();
+
+  setActiveNav("navProfile");
+
+});
+
+
+/* ---------- KEEP NAV ABOVE CONTENT ---------- */
+
+document.querySelector(".app")
+.insertAdjacentHTML(
+  "beforeend",
+  '<div class="bottom-spacer"></div>'
+);
+
+</script>
