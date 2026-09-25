@@ -9137,3 +9137,1848 @@ showHome();
 
 })();
 </script>
+<script>
+/* ================= PART 31 : BOOKING CALCULATION ================= */
+
+(function(){
+
+  function p31(id){
+    return document.getElementById(id);
+  }
+
+  function getNights31(){
+
+    const checkIn =
+      p31("checkIn");
+
+    const checkOut =
+      p31("checkOut");
+
+    if(
+      !checkIn ||
+      !checkOut ||
+      !checkIn.value ||
+      !checkOut.value
+    ){
+
+      return 0;
+
+    }
+
+    const start =
+      new Date(checkIn.value);
+
+    const end =
+      new Date(checkOut.value);
+
+    const difference =
+      end.getTime() -
+      start.getTime();
+
+    return Math.max(
+      0,
+      Math.ceil(
+        difference /
+        (1000*60*60*24)
+      )
+    );
+
+  }
+
+
+  function refreshPrice31(){
+
+    const state =
+      window.PahadiStay ||
+      {};
+
+    const stay =
+      state.currentStay;
+
+    if(!stay) return;
+
+    const nights =
+      getNights31();
+
+    const guests =
+      Number(state.guests || 2);
+
+    const rooms =
+      Number(state.rooms || 1);
+
+    const price =
+      Number(stay.price || 0);
+
+    const total =
+      nights > 0
+        ? price * nights * rooms
+        : price * rooms;
+
+
+    if(p31("bookingNights")){
+
+      p31("bookingNights").textContent =
+        nights +
+        (nights===1 ? " night" : " nights");
+
+    }
+
+
+    if(p31("bookingTotal")){
+
+      p31("bookingTotal").textContent =
+        "₹" +
+        total.toLocaleString(
+          "en-IN"
+        );
+
+    }
+
+
+    if(p31("bookingPagePrice")){
+
+      p31("bookingPagePrice").textContent =
+        "₹" +
+        price.toLocaleString(
+          "en-IN"
+        ) +
+        " / night";
+
+    }
+
+
+    state.nights =
+      nights;
+
+    state.total =
+      total;
+
+    state.guests =
+      guests;
+
+    state.rooms =
+      rooms;
+
+    window.PahadiStay =
+      state;
+
+  }
+
+
+  /* ---------- DATE CHANGE ---------- */
+
+  const in31 =
+    p31("checkIn");
+
+  const out31 =
+    p31("checkOut");
+
+
+  if(in31){
+
+    in31.addEventListener(
+      "change",
+      refreshPrice31
+    );
+
+  }
+
+
+  if(out31){
+
+    out31.addEventListener(
+      "change",
+      refreshPrice31
+    );
+
+  }
+
+
+  /* ---------- GUEST CHANGE ---------- */
+
+  const guestPlus31 =
+    p31("guestPlus");
+
+  const guestMinus31 =
+    p31("guestMinus");
+
+
+  if(guestPlus31){
+
+    guestPlus31.addEventListener(
+      "click",
+      refreshPrice31
+    );
+
+  }
+
+
+  if(guestMinus31){
+
+    guestMinus31.addEventListener(
+      "click",
+      refreshPrice31
+    );
+
+  }
+
+
+  /* ---------- ROOM CHANGE ---------- */
+
+  const roomPlus31 =
+    p31("roomPlus");
+
+  const roomMinus31 =
+    p31("roomMinus");
+
+
+  if(roomPlus31){
+
+    roomPlus31.addEventListener(
+      "click",
+      refreshPrice31
+    );
+
+  }
+
+
+  if(roomMinus31){
+
+    roomMinus31.addEventListener(
+      "click",
+      refreshPrice31
+    );
+
+  }
+
+
+  /* ---------- DATE TEXT ---------- */
+
+  function formatDate31(value){
+
+    if(!value) return "Select date";
+
+    const date =
+      new Date(value);
+
+    return date.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"short",
+        year:"numeric"
+      }
+    );
+
+  }
+
+
+  if(in31){
+
+    in31.addEventListener(
+      "change",
+      ()=>{
+
+        const text =
+          p31("checkInText");
+
+        if(text){
+
+          text.textContent =
+            formatDate31(
+              in31.value
+            );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  if(out31){
+
+    out31.addEventListener(
+      "change",
+      ()=>{
+
+        const text =
+          p31("checkOutText");
+
+        if(text){
+
+          text.textContent =
+            formatDate31(
+              out31.value
+            );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* ---------- INITIAL ---------- */
+
+  setTimeout(
+    refreshPrice31,
+    150
+  );
+
+
+})();
+</script>
+<script>
+/* ================= PART 32 : FINAL BOOKING VALIDATION ================= */
+
+(function(){
+
+  function p32(id){
+    return document.getElementById(id);
+  }
+
+
+  /* ---------- INPUT CLEANUP ---------- */
+
+  const name32 =
+    p32("guestName");
+
+  const phone32 =
+    p32("guestPhone");
+
+  const email32 =
+    p32("guestEmail");
+
+
+  if(name32){
+
+    name32.addEventListener(
+      "input",
+      ()=>{
+
+        name32.value =
+          name32.value.replace(
+            /[^a-zA-Z\s.'-]/g,
+            ""
+          );
+
+      }
+    );
+
+  }
+
+
+  if(phone32){
+
+    phone32.addEventListener(
+      "input",
+      ()=>{
+
+        phone32.value =
+          phone32.value.replace(
+            /[^0-9]/g,
+            ""
+          ).slice(0,10);
+
+      }
+    );
+
+  }
+
+
+  if(email32){
+
+    email32.addEventListener(
+      "input",
+      ()=>{
+
+        email32.value =
+          email32.value
+          .replace(/\s/g,"")
+          .toLowerCase();
+
+      }
+    );
+
+  }
+
+
+  /* ---------- CONFIRM BUTTON ---------- */
+
+  const confirm32 =
+    p32("confirmBooking");
+
+
+  if(confirm32){
+
+    confirm32.addEventListener(
+      "click",
+      ()=>{
+
+        const name =
+          name32
+          ? name32.value.trim()
+          : "";
+
+        const phone =
+          phone32
+          ? phone32.value.trim()
+          : "";
+
+        const email =
+          email32
+          ? email32.value.trim()
+          : "";
+
+
+        if(name.length < 2){
+
+          showToast(
+            "Please enter your full name"
+          );
+
+          if(name32)
+            name32.focus();
+
+          return;
+
+        }
+
+
+        if(!/^[0-9]{10}$/.test(phone)){
+
+          showToast(
+            "Enter a valid 10-digit mobile number"
+          );
+
+          if(phone32)
+            phone32.focus();
+
+          return;
+
+        }
+
+
+        if(
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          .test(email)
+        ){
+
+          showToast(
+            "Enter a valid email address"
+          );
+
+          if(email32)
+            email32.focus();
+
+          return;
+
+        }
+
+
+        const state =
+          window.PahadiStay ||
+          {};
+
+        const stay =
+          state.currentStay;
+
+
+        if(!stay){
+
+          showToast(
+            "Please select a stay first"
+          );
+
+          return;
+
+        }
+
+
+        if(
+          !state.checkIn ||
+          !state.checkOut
+        ){
+
+          showToast(
+            "Please select your dates"
+          );
+
+          return;
+
+        }
+
+
+        /* ---------- CREATE BOOKING ---------- */
+
+        const bookingId =
+          "PS" +
+          Date.now()
+          .toString()
+          .slice(-7);
+
+
+        const booking = {
+
+          id:bookingId,
+
+          name:
+            stay.name || "Pahadi Stay",
+
+          city:
+            stay.city || "",
+
+          location:
+            stay.location || "",
+
+          image:
+            stay.image || "",
+
+          price:
+            Number(stay.price || 0),
+
+          checkIn:
+            state.checkIn,
+
+          checkOut:
+            state.checkOut,
+
+          guests:
+            Number(state.guests || 2),
+
+          rooms:
+            Number(state.rooms || 1),
+
+          nights:
+            Number(state.nights || 1),
+
+          total:
+            Number(state.total || 0),
+
+          guestName:name,
+
+          phone:phone,
+
+          email:email,
+
+          request:
+            p32("guestRequest")
+            ? p32("guestRequest").value.trim()
+            : "",
+
+          createdAt:
+            new Date().toISOString()
+
+        };
+
+
+        localStorage.setItem(
+          "pahadi_booking",
+          JSON.stringify(booking)
+        );
+
+
+        state.lastBooking =
+          booking;
+
+        window.PahadiStay =
+          state;
+
+
+        /* ---------- SUCCESS PAGE ---------- */
+
+        if(p32("bookingId"))
+          p32("bookingId").textContent =
+            booking.id;
+
+        if(p32("successStay"))
+          p32("successStay").textContent =
+            booking.name;
+
+        if(p32("successLocation"))
+          p32("successLocation").textContent =
+            booking.location;
+
+        if(p32("successCheckIn"))
+          p32("successCheckIn").textContent =
+            booking.checkIn;
+
+        if(p32("successCheckOut"))
+          p32("successCheckOut").textContent =
+            booking.checkOut;
+
+        if(p32("successGuests"))
+          p32("successGuests").textContent =
+            booking.guests +
+            " Guest" +
+            (
+              booking.guests > 1
+              ? "s"
+              : ""
+            );
+
+        if(p32("successTotal"))
+          p32("successTotal").textContent =
+            "₹" +
+            booking.total.toLocaleString(
+              "en-IN"
+            );
+
+        if(
+          p32("successImage") &&
+          booking.image
+        ){
+
+          p32("successImage").src =
+            booking.image;
+
+        }
+
+
+        /* ---------- HIDE OTHER PAGES ---------- */
+
+        [
+          "bookingPage",
+          "guestDetailsPage",
+          "detailPage"
+        ].forEach(id=>{
+
+          const page =
+            p32(id);
+
+          if(page)
+            page.style.display="none";
+
+        });
+
+
+        const success =
+          p32("successPage");
+
+        if(success)
+          success.style.display="block";
+
+
+        setActiveNav(
+          "navBookings"
+        );
+
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
+
+
+        showToast(
+          "Booking confirmed successfully"
+        );
+
+      }
+    );
+
+  }
+
+})();
+</script>
+<script>
+/* ================= PART 33 : FINAL EXPERIENCE POLISH ================= */
+
+(function(){
+
+  /* ---------- LOADER ---------- */
+
+  const loader33 =
+    document.getElementById("pageLoader");
+
+
+  if(loader33){
+
+    setTimeout(()=>{
+
+      loader33.style.opacity="0";
+      loader33.style.pointerEvents="none";
+
+      setTimeout(()=>{
+
+        loader33.style.display="none";
+
+      },350);
+
+    },500);
+
+  }
+
+
+  /* ---------- IMAGE LOADING ---------- */
+
+  document
+  .querySelectorAll("img")
+  .forEach(img=>{
+
+    img.style.transition =
+      "opacity .25s ease";
+
+    if(img.complete){
+
+      img.style.opacity="1";
+
+    }else{
+
+      img.style.opacity=".45";
+
+      img.addEventListener(
+        "load",
+        ()=>{
+
+          img.style.opacity="1";
+
+        }
+      );
+
+      img.addEventListener(
+        "error",
+        ()=>{
+
+          img.style.opacity=".25";
+
+        }
+      );
+
+    }
+
+  });
+
+
+  /* ---------- TOAST ---------- */
+
+  window.showToast =
+  window.showToast ||
+  function(message){
+
+    const toast =
+      document.getElementById(
+        "pahadiToast"
+      );
+
+    if(!toast) return;
+
+    toast.textContent =
+      message;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+      window.pahadiToastTimer
+    );
+
+    window.pahadiToastTimer =
+      setTimeout(()=>{
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },2200);
+
+  };
+
+
+  /* ---------- TOUCH FEEDBACK ---------- */
+
+  document.addEventListener(
+    "touchstart",
+    event=>{
+
+      const target =
+        event.target.closest(
+          "button, .destination, .stay-card, .explore-card"
+        );
+
+      if(!target) return;
+
+      target.style.transition =
+        "transform .12s ease";
+
+      target.style.transform =
+        "scale(.98)";
+
+    },
+    {passive:true}
+  );
+
+
+  document.addEventListener(
+    "touchend",
+    event=>{
+
+      const target =
+        event.target.closest(
+          "button, .destination, .stay-card, .explore-card"
+        );
+
+      if(!target) return;
+
+      setTimeout(()=>{
+
+        target.style.transform="";
+
+      },120);
+
+    },
+    {passive:true}
+  );
+
+
+  /* ---------- PREVENT DOUBLE TAP ZOOM ---------- */
+
+  let lastTouch33=0;
+
+  document.addEventListener(
+    "touchend",
+    event=>{
+
+      const now =
+        Date.now();
+
+      if(
+        now-lastTouch33 <= 280
+      ){
+
+        event.preventDefault();
+
+      }
+
+      lastTouch33 =
+        now;
+
+    },
+    {passive:false}
+  );
+
+
+  /* ---------- START AT TOP ---------- */
+
+  window.scrollTo({
+    top:0,
+    left:0
+  });
+
+
+})();
+</script>
+<script>
+/* ================= PART 34 : FINAL BOOKING SYNC ================= */
+
+(function(){
+
+  function p34(id){
+    return document.getElementById(id);
+  }
+
+
+  /* ---------- FORMAT DATE ---------- */
+
+  function formatDate34(value){
+
+    if(!value) return "—";
+
+    const date =
+      new Date(value);
+
+    if(isNaN(date.getTime()))
+      return value;
+
+    return date.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"short",
+        year:"numeric"
+      }
+    );
+
+  }
+
+
+  /* ---------- REFRESH SUCCESS ---------- */
+
+  function refreshSuccess34(){
+
+    const raw =
+      localStorage.getItem(
+        "pahadi_booking"
+      );
+
+    if(!raw) return;
+
+
+    try{
+
+      const booking =
+        JSON.parse(raw);
+
+
+      if(p34("bookingId")){
+
+        p34("bookingId")
+        .textContent =
+          booking.id || "PS000000";
+
+        p34("bookingId").title =
+          "Tap to copy booking ID";
+
+      }
+
+
+      if(p34("successStay")){
+
+        p34("successStay")
+        .textContent =
+          booking.name ||
+          "Pahadi Stay";
+
+      }
+
+
+      if(p34("successLocation")){
+
+        p34("successLocation")
+        .textContent =
+          booking.location ||
+          booking.city ||
+          "Uttarakhand";
+
+      }
+
+
+      if(p34("successCheckIn")){
+
+        p34("successCheckIn")
+        .textContent =
+          formatDate34(
+            booking.checkIn
+          );
+
+      }
+
+
+      if(p34("successCheckOut")){
+
+        p34("successCheckOut")
+        .textContent =
+          formatDate34(
+            booking.checkOut
+          );
+
+      }
+
+
+      if(p34("successGuests")){
+
+        const guests =
+          Number(
+            booking.guests || 1
+          );
+
+        const rooms =
+          Number(
+            booking.rooms || 1
+          );
+
+        p34("successGuests")
+        .textContent =
+          guests +
+          (guests===1
+            ? " Guest"
+            : " Guests") +
+          " • " +
+          rooms +
+          (rooms===1
+            ? " Room"
+            : " Rooms");
+
+      }
+
+
+      if(p34("successTotal")){
+
+        p34("successTotal")
+        .textContent =
+          "₹" +
+          Number(
+            booking.total || 0
+          ).toLocaleString(
+            "en-IN"
+          );
+
+      }
+
+
+      if(
+        p34("successImage") &&
+        booking.image
+      ){
+
+        p34("successImage").src =
+          booking.image;
+
+      }
+
+    }catch(error){
+
+      console.log(
+        "Booking sync error"
+      );
+
+    }
+
+  }
+
+
+  /* ---------- BOOKING CARD SYNC ---------- */
+
+  function refreshBookingCard34(){
+
+    const raw =
+      localStorage.getItem(
+        "pahadi_booking"
+      );
+
+    if(!raw){
+
+      if(
+        typeof loadMyBooking ===
+        "function"
+      ){
+
+        loadMyBooking();
+
+      }
+
+      return;
+
+    }
+
+
+    try{
+
+      const booking =
+        JSON.parse(raw);
+
+
+      if(p34("myBookingName"))
+        p34("myBookingName")
+          .textContent =
+          booking.name || "Pahadi Stay";
+
+
+      if(p34("myBookingLocation"))
+        p34("myBookingLocation")
+          .textContent =
+          booking.location ||
+          booking.city ||
+          "Uttarakhand";
+
+
+      if(p34("myBookingCheckIn"))
+        p34("myBookingCheckIn")
+          .textContent =
+          formatDate34(
+            booking.checkIn
+          );
+
+
+      if(p34("myBookingCheckOut"))
+        p34("myBookingCheckOut")
+          .textContent =
+          formatDate34(
+            booking.checkOut
+          );
+
+
+      if(p34("myBookingTotal"))
+        p34("myBookingTotal")
+          .textContent =
+          "₹" +
+          Number(
+            booking.total || 0
+          ).toLocaleString(
+            "en-IN"
+          );
+
+
+      if(
+        p34("myBookingImage") &&
+        booking.image
+      ){
+
+        p34("myBookingImage").src =
+          booking.image;
+
+      }
+
+    }catch(error){}
+
+  }
+
+
+  /* ---------- PROFILE COUNTS ---------- */
+
+  function refreshCounts34(){
+
+    const booking =
+      localStorage.getItem(
+        "pahadi_booking"
+      );
+
+
+    let saved=[];
+
+    try{
+
+      saved =
+        JSON.parse(
+          localStorage.getItem(
+            "pahadi_saved"
+          )
+        ) || [];
+
+    }catch(error){
+
+      saved=[];
+
+    }
+
+
+    if(p34("profileBookings")){
+
+      p34("profileBookings")
+        .textContent =
+        booking ? "1" : "0";
+
+    }
+
+
+    if(p34("profileSaved")){
+
+      p34("profileSaved")
+        .textContent =
+        saved.length;
+
+    }
+
+  }
+
+
+  /* ---------- RUN SYNC ---------- */
+
+  refreshSuccess34();
+
+  refreshBookingCard34();
+
+  refreshCounts34();
+
+
+  /* ---------- AFTER BOOKING ---------- */
+
+  document.addEventListener(
+    "click",
+    event=>{
+
+      const target =
+        event.target.closest(
+          "#confirmBooking"
+        );
+
+      if(!target) return;
+
+      setTimeout(()=>{
+
+        refreshSuccess34();
+
+        refreshBookingCard34();
+
+        refreshCounts34();
+
+      },250);
+
+    }
+  );
+
+
+})();
+</script>
+<script>
+/* ================= PART 35 : SAVED STAYS FINAL ================= */
+
+(function(){
+
+  function p35(id){
+    return document.getElementById(id);
+  }
+
+
+  /* ---------- GET SAVED ---------- */
+
+  function getSaved35(){
+
+    try{
+
+      return JSON.parse(
+        localStorage.getItem(
+          "pahadi_saved"
+        )
+      ) || [];
+
+    }catch(error){
+
+      return [];
+
+    }
+
+  }
+
+
+  /* ---------- SAVE DATA ---------- */
+
+  function setSaved35(list){
+
+    localStorage.setItem(
+      "pahadi_saved",
+      JSON.stringify(list)
+    );
+
+  }
+
+
+  /* ---------- REFRESH HEARTS ---------- */
+
+  function refreshHearts35(){
+
+    const saved =
+      getSaved35();
+
+
+    document
+    .querySelectorAll(
+      "[data-save]"
+    )
+    .forEach(item=>{
+
+      const name =
+        item.dataset.save;
+
+      const button =
+        item.matches("button")
+          ? item
+          : item.querySelector(
+              ".heart-btn, .explore-heart"
+            );
+
+      if(!button) return;
+
+
+      const active =
+        saved.includes(name);
+
+
+      button.classList.toggle(
+        "saved",
+        active
+      );
+
+
+      button.classList.toggle(
+        "active",
+        active
+      );
+
+
+      const icon =
+        button.querySelector(
+          ".heart-icon"
+        );
+
+
+      if(icon){
+
+        icon.textContent =
+          active ? "♥" : "♡";
+
+      }
+
+    });
+
+  }
+
+
+  /* ---------- LOAD SAVED PAGE ---------- */
+
+  function renderSaved35(){
+
+    const list =
+      p35("savedList");
+
+    const empty =
+      p35("savedEmpty");
+
+    if(!list) return;
+
+
+    const saved =
+      getSaved35();
+
+
+    list.innerHTML="";
+
+
+    if(saved.length===0){
+
+      if(empty)
+        empty.style.display="block";
+
+      return;
+
+    }
+
+
+    if(empty)
+      empty.style.display="none";
+
+
+    saved.forEach(name=>{
+
+      let stay=null;
+
+
+      try{
+
+        if(
+          typeof stayData !==
+          "undefined"
+        ){
+
+          stay =
+            stayData[name];
+
+        }
+
+      }catch(error){}
+
+
+      if(!stay) return;
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "saved-card";
+
+
+      card.innerHTML = `
+
+        <div class="saved-card-image">
+
+          <img
+            src="${stay.image}"
+            alt="${stay.name}"
+          >
+
+          <button
+            class="saved-remove"
+            type="button"
+          >
+            ♥
+          </button>
+
+        </div>
+
+        <div class="saved-card-info">
+
+          <div>
+
+            <h3>${stay.name}</h3>
+
+            <p>
+              ${stay.location}
+            </p>
+
+          </div>
+
+          <div class="saved-card-bottom">
+
+            <strong>
+              ₹${Number(
+                stay.price
+              ).toLocaleString("en-IN")}
+              <small>/night</small>
+            </strong>
+
+            <button
+              class="saved-view"
+              type="button"
+            >
+              View Stay
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      /* ---------- REMOVE ---------- */
+
+      const remove =
+        card.querySelector(
+          ".saved-remove"
+        );
+
+
+      if(remove){
+
+        remove.addEventListener(
+          "click",
+          event=>{
+
+            event.stopPropagation();
+
+
+            const updated =
+              getSaved35()
+              .filter(
+                item =>
+                  item !== name
+              );
+
+
+            setSaved35(updated);
+
+
+            renderSaved35();
+
+            refreshHearts35();
+
+
+            if(
+              typeof refreshProfile==="function"
+            ){
+
+              refreshProfile();
+
+            }
+
+
+            showToast(
+              "Removed from saved"
+            );
+
+          }
+        );
+
+      }
+
+
+      /* ---------- VIEW ---------- */
+
+      const view =
+        card.querySelector(
+          ".saved-view"
+        );
+
+
+      if(view){
+
+        view.addEventListener(
+          "click",
+          event=>{
+
+            event.stopPropagation();
+
+            if(
+              typeof openStay ===
+              "function"
+            ){
+
+              openStay(name);
+
+            }
+
+          }
+        );
+
+      }
+
+
+      /* ---------- CARD CLICK ---------- */
+
+      card.addEventListener(
+        "click",
+        ()=>{
+
+          if(
+            typeof openStay ===
+            "function"
+          ){
+
+            openStay(name);
+
+          }
+
+        }
+      );
+
+
+      list.appendChild(card);
+
+    });
+
+
+    refreshHearts35();
+
+  }
+
+
+  /* ---------- SAVED NAV ---------- */
+
+  const savedNav35 =
+    p35("navSaved");
+
+
+  if(savedNav35){
+
+    savedNav35.addEventListener(
+      "click",
+      ()=>{
+
+        setTimeout(
+          renderSaved35,
+          50
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ---------- PROFILE SAVED ---------- */
+
+  const profileSaved35 =
+    p35("profileSavedBtn");
+
+
+  if(profileSaved35){
+
+    profileSaved35.addEventListener(
+      "click",
+      ()=>{
+
+        setTimeout(
+          renderSaved35,
+          50
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ---------- SAVED PAGE OPEN ---------- */
+
+  const savedPage35 =
+    p35("savedPage");
+
+
+  if(savedPage35){
+
+    const observer35 =
+      new MutationObserver(
+        ()=>{
+
+          if(
+            savedPage35.style.display !==
+            "none"
+          ){
+
+            renderSaved35();
+
+          }
+
+        }
+      );
+
+
+    observer35.observe(
+      savedPage35,
+      {
+        attributes:true,
+        attributeFilter:[
+          "style"
+        ]
+      }
+    );
+
+  }
+
+
+  /* ---------- INITIAL ---------- */
+
+  setTimeout(()=>{
+
+    refreshHearts35();
+
+    renderSaved35();
+
+  },200);
+
+
+})();
+</script>
+<style>
+
+/* ================= PART 36 : PREMIUM MOBILE POLISH ================= */
+
+.saved-card{
+  margin:12px 0;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.035);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.saved-card-image{
+  position:relative;
+  height:190px;
+  overflow:hidden;
+}
+
+.saved-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.saved-remove{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.58);
+  color:#b9ffcf;
+  font-size:20px;
+  backdrop-filter:blur(8px);
+}
+
+.saved-card-info{
+  padding:15px;
+}
+
+.saved-card-info h3{
+  margin:0 0 5px;
+  font-size:17px;
+  color:#fff;
+}
+
+.saved-card-info p{
+  margin:0;
+  color:#91a098;
+  font-size:12px;
+}
+
+.saved-card-bottom{
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.saved-card-bottom strong{
+  color:#c8ffd7;
+  font-size:16px;
+}
+
+.saved-card-bottom small{
+  color:#84928b;
+  font-size:11px;
+  font-weight:400;
+}
+
+.saved-view{
+  border:1px solid rgba(145,255,177,.25);
+  background:rgba(145,255,177,.08);
+  color:#caffd8;
+  padding:9px 13px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:700;
+}
+
+
+/* ---------- BOOKING CARD ---------- */
+
+.my-booking-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 14px 35px rgba(0,0,0,.2);
+}
+
+.my-booking-card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+}
+
+.my-booking-card button{
+  min-height:42px;
+  border-radius:13px;
+}
+
+
+/* ---------- INPUT POLISH ---------- */
+
+input,
+textarea,
+select{
+  outline:none;
+  -webkit-appearance:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:rgba(130,255,165,.55)!important;
+  box-shadow:
+    0 0 0 3px
+    rgba(130,255,165,.08);
+}
+
+
+/* ---------- BUTTON POLISH ---------- */
+
+button{
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.97);
+}
+
+
+/* ---------- SEARCH ---------- */
+
+.search{
+  box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.25);
+}
+
+
+/* ---------- STAY CARDS ---------- */
+
+.stay-card,
+.explore-card{
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.stay-card:active,
+.explore-card:active{
+  transform:scale(.985);
+}
+
+
+/* ---------- IMAGES ---------- */
+
+img{
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+
+/* ---------- BOTTOM NAV ---------- */
+
+.bottom-nav{
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  background:rgba(5,8,7,.92)!important;
+  border-top:1px solid
+    rgba(255,255,255,.08)!important;
+}
+
+.bottom-item{
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.bottom-item.active{
+  color:#baffce!important;
+}
+
+.bottom-item.active .nav-icon{
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(150,255,180,.35)
+    );
+}
+
+
+/* ---------- MODAL ---------- */
+
+.info-sheet{
+  border-top-left-radius:28px!important;
+  border-top-right-radius:28px!important;
+  border:1px solid
+    rgba(255,255,255,.08);
+}
+
+
+/* ---------- MOBILE SAFETY ---------- */
+
+@media(max-width:480px){
+
+  .app{
+    width:100%;
+    min-height:100vh;
+  }
+
+  .section{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .stay-row{
+    gap:10px;
+  }
+
+  .stay-card{
+    min-width:82%;
+  }
+
+}
+
+</style>
