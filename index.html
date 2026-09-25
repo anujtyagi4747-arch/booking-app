@@ -1,0 +1,3593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>PahadiStay</title>
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050807;
+    color:#f5f7f4;
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    border:0;
+    outline:0;
+}
+
+
+/* ================================
+   APP
+================================ */
+
+.app{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    margin:auto;
+
+    background:
+    radial-gradient(
+        circle at 90% 0%,
+        rgba(91,255,180,.08),
+        transparent 28%
+    ),
+    #080b0a;
+
+    overflow:hidden;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header{
+    height:72px;
+
+    padding:13px 17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:43px;
+    height:43px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#101814;
+
+    border:1px solid rgba(121,255,193,.18);
+
+    box-shadow:
+    0 0 22px rgba(75,255,170,.08);
+
+    font-size:21px;
+}
+
+.brand-text h1{
+    font-size:18px;
+    letter-spacing:-.5px;
+}
+
+.brand-text p{
+    margin-top:4px;
+
+    color:#6f7973;
+
+    font-size:8px;
+
+    letter-spacing:1.4px;
+}
+
+.profile{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#101512;
+
+    color:#dfffe9;
+
+    border:1px solid rgba(121,255,193,.13);
+
+    font-size:17px;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+    position:relative;
+
+    height:345px;
+
+    margin:4px 15px 0;
+
+    border-radius:29px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(0,0,0,.02) 20%,
+        rgba(0,0,0,.20) 48%,
+        rgba(0,0,0,.90) 100%
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    right:-50px;
+    top:-45px;
+
+    border-radius:50%;
+
+    background:#72ffb5;
+
+    opacity:.13;
+
+    filter:blur(35px);
+}
+
+.hero-content{
+    position:absolute;
+
+    left:20px;
+    right:20px;
+    bottom:22px;
+}
+
+.badge{
+    display:inline-flex;
+
+    padding:7px 11px;
+
+    border-radius:30px;
+
+    background:rgba(10,18,14,.65);
+
+    border:1px solid rgba(127,255,193,.18);
+
+    color:#a8ffce;
+
+    font-size:9px;
+
+    margin-bottom:12px;
+
+    backdrop-filter:blur(10px);
+}
+
+.hero h2{
+    font-size:31px;
+
+    line-height:1.04;
+
+    letter-spacing:-1.4px;
+
+    max-width:310px;
+}
+
+.hero h2 span{
+    color:#91ffc3;
+}
+
+.hero p{
+    margin-top:10px;
+
+    max-width:290px;
+
+    color:#b9c0bb;
+
+    font-size:11px;
+
+    line-height:1.55;
+}
+
+
+/* ================================
+   SEARCH
+================================ */
+
+.search-wrap{
+    position:relative;
+
+    z-index:10;
+
+    margin:-28px 23px 0;
+}
+
+.search{
+    height:61px;
+
+    padding:7px;
+
+    display:flex;
+    align-items:center;
+
+    background:#111713;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:21px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.40);
+}
+
+.search-icon{
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:#19221c;
+
+    color:#9cffc7;
+
+    font-size:20px;
+}
+
+.search input{
+    flex:1;
+
+    min-width:0;
+
+    height:100%;
+
+    padding:0 10px;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+
+    color:#fff;
+
+    font-size:12px;
+}
+
+.search input::placeholder{
+    color:#68716b;
+}
+
+.search button{
+    width:44px;
+    height:44px;
+
+    border-radius:14px;
+
+    background:#8cffbd;
+
+    color:#08100b;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 20px rgba(103,255,178,.12);
+}
+
+
+/* ================================
+   SECTION
+================================ */
+
+.section{
+    padding:28px 17px 0;
+}
+
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:15px;
+}
+
+.section-head h3{
+    font-size:17px;
+
+    letter-spacing:-.4px;
+}
+
+.section-head button{
+    background:transparent;
+
+    color:#7c8780;
+
+    font-size:9px;
+}
+
+
+/* ================================
+   DESTINATIONS
+================================ */
+
+.destination-row{
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.destination-row::-webkit-scrollbar{
+    display:none;
+}
+
+.destination{
+    min-width:82px;
+
+    text-align:center;
+}
+
+.destination-image{
+    width:78px;
+    height:78px;
+
+    object-fit:cover;
+
+    border-radius:23px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    display:block;
+
+    box-shadow:
+    0 8px 22px rgba(0,0,0,.25);
+}
+
+.destination-name{
+    margin-top:8px;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.destination-count{
+    margin-top:3px;
+
+    color:#66716a;
+
+    font-size:8px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:350px){
+
+    .hero{
+        height:320px;
+    }
+
+    .hero h2{
+        font-size:27px;
+    }
+
+    .search-wrap{
+        margin-left:17px;
+        margin-right:17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo">
+            ⛰
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                PahadiStay
+            </h1>
+
+            <p>
+                UTTARAKHAND • HOMESTAYS
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="profile"
+        id="profileBtn">
+
+        ◉
+
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ HANDPICKED MOUNTAIN STAYS
+        </div>
+
+        <h2>
+            Wake up
+            <span>
+                closer
+            </span>
+            to the mountains.
+        </h2>
+
+        <p>
+            Discover peaceful homestays,
+            hidden valleys and authentic
+            Himalayan experiences.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-wrap">
+
+    <div class="search">
+
+        <div class="search-icon">
+            ⌕
+        </div>
+
+        <input
+            id="homeSearch"
+            type="text"
+            placeholder="Where do you want to stay?">
+
+        <button
+            id="searchBtn">
+
+            →
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- DESTINATIONS -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h3>
+            Explore Uttarakhand
+        </h3>
+
+        <button
+            id="seeAllBtn">
+
+            See all
+
+        </button>
+
+    </div>
+
+
+    <div class="destination-row">
+
+
+        <div
+            class="destination"
+            data-city="Rishikesh">
+
+            <img
+                class="destination-image"
+                src="https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=400&q=80">
+
+            <div class="destination-name">
+                Rishikesh
+            </div>
+
+            <div class="destination-count">
+                48 stays
+            </div>
+
+        </div>
+
+
+        <div
+            class="destination"
+            data-city="Mussoorie">
+
+            <img
+                class="destination-image"
+                src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=400&q=80">
+
+            <div class="destination-name">
+                Mussoorie
+            </div>
+
+            <div class="destination-count">
+                36 stays
+            </div>
+
+        </div>
+
+
+        <div
+            class="destination"
+            data-city="Nainital">
+
+            <img
+                class="destination-image"
+                src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=400&q=80">
+
+            <div class="destination-name">
+                Nainital
+            </div>
+
+            <div class="destination-count">
+                29 stays
+            </div>
+
+        </div>
+
+
+        <div
+            class="destination"
+            data-city="Auli">
+
+            <img
+                class="destination-image"
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=400&q=80">
+
+            <div class="destination-name">
+                Auli
+            </div>
+
+            <div class="destination-count">
+                18 stays
+            </div>
+
+        </div>
+
+
+        <div
+            class="destination"
+            data-city="Almora">
+
+            <img
+                class="destination-image"
+                src="https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=400&q=80">
+
+            <div class="destination-name">
+                Almora
+            </div>
+
+            <div class="destination-count">
+                24 stays
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+<!-- ================= PART 2 : FEATURED STAYS ================= -->
+
+<section class="section" id="featuredSection">
+
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">CURATED FOR YOU</p>
+      <h3>Featured stays</h3>
+    </div>
+
+    <button class="see-all" id="seeAllBtn">See all</button>
+  </div>
+
+  <div class="stay-row">
+
+    <!-- Stay 1 -->
+    <article class="stay-card" data-stay="Pahadi Pearl Cottage">
+
+      <div class="stay-image">
+        <img
+          src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=900&q=85"
+          alt="Mountain cottage"
+        >
+
+        <button class="heart-btn" data-save="Pahadi Pearl Cottage">♡</button>
+
+        <div class="stay-tag">TOP RATED</div>
+      </div>
+
+      <div class="stay-info">
+        <div class="stay-location">📍 Mukteshwar, Uttarakhand</div>
+
+        <h4>Pahadi Pearl Cottage</h4>
+
+        <div class="stay-rating">
+          <span>★ 4.9</span>
+          <small> · 126 reviews</small>
+        </div>
+
+        <div class="stay-bottom">
+          <div>
+            <strong>₹2,499</strong>
+            <span>/ night</span>
+          </div>
+
+          <button class="view-stay" data-stay="Pahadi Pearl Cottage">
+            View
+          </button>
+        </div>
+      </div>
+
+    </article>
+
+
+    <!-- Stay 2 -->
+    <article class="stay-card" data-stay="Riverstone Retreat">
+
+      <div class="stay-image">
+        <img
+          src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=85"
+          alt="Luxury mountain stay"
+        >
+
+        <button class="heart-btn" data-save="Riverstone Retreat">♡</button>
+
+        <div class="stay-tag">RIVERSIDE</div>
+      </div>
+
+      <div class="stay-info">
+        <div class="stay-location">📍 Rishikesh, Uttarakhand</div>
+
+        <h4>Riverstone Retreat</h4>
+
+        <div class="stay-rating">
+          <span>★ 4.8</span>
+          <small> · 94 reviews</small>
+        </div>
+
+        <div class="stay-bottom">
+          <div>
+            <strong>₹1,899</strong>
+            <span>/ night</span>
+          </div>
+
+          <button class="view-stay" data-stay="Riverstone Retreat">
+            View
+          </button>
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* FEATURED SECTION */
+
+.eyebrow{
+  margin:0 0 5px;
+  color:#78e08f;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.section-head h3{
+  margin:0;
+  color:#fff;
+  font-size:22px;
+}
+
+.see-all{
+  border:0;
+  background:transparent;
+  color:#78e08f;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+
+/* STAY ROW */
+
+.stay-row{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:2px 1px 10px;
+  scroll-snap-type:x mandatory;
+}
+
+.stay-row::-webkit-scrollbar{
+  display:none;
+}
+
+
+/* CARD */
+
+.stay-card{
+  flex:0 0 285px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:22px;
+  overflow:hidden;
+  scroll-snap-align:start;
+  box-shadow:0 14px 35px rgba(0,0,0,.25);
+}
+
+.stay-image{
+  height:190px;
+  position:relative;
+  overflow:hidden;
+}
+
+.stay-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.heart-btn{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(0,0,0,.45);
+  color:#fff;
+  font-size:21px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+}
+
+.heart-btn.saved{
+  color:#78e08f;
+  background:rgba(28,75,43,.7);
+}
+
+.stay-tag{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  padding:7px 10px;
+  border-radius:9px;
+  background:rgba(5,10,7,.78);
+  border:1px solid rgba(120,224,143,.25);
+  color:#9bf2ac;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+
+/* INFO */
+
+.stay-info{
+  padding:15px;
+}
+
+.stay-location{
+  color:#84918a;
+  font-size:10px;
+  margin-bottom:6px;
+}
+
+.stay-info h4{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:17px;
+}
+
+.stay-rating{
+  font-size:11px;
+  color:#ffd76a;
+}
+
+.stay-rating small{
+  color:#77827c;
+}
+
+.stay-bottom{
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.stay-bottom strong{
+  color:#fff;
+  font-size:17px;
+}
+
+.stay-bottom span{
+  color:#758079;
+  font-size:10px;
+}
+
+.view-stay{
+  border:0;
+  padding:9px 14px;
+  border-radius:11px;
+  background:#79df8d;
+  color:#071009;
+  font-weight:900;
+  font-size:11px;
+  cursor:pointer;
+}
+
+.view-stay:active,
+.see-all:active,
+.heart-btn:active{
+  transform:scale(.94);
+}
+
+</style>
+<!-- ================= PART 3 : EXPLORE PAGE ================= -->
+
+<section class="explore-page" id="explorePage">
+
+  <div class="explore-top">
+    <button class="back-btn" id="exploreBack">‹</button>
+
+    <div>
+      <p>DISCOVER</p>
+      <h2>Explore stays</h2>
+    </div>
+
+    <button class="filter-btn" id="filterBtn">☷</button>
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="explore-search">
+    <span>⌕</span>
+    <input
+      type="text"
+      id="exploreSearch"
+      placeholder="Search city, stay or area..."
+    >
+  </div>
+
+
+  <!-- QUICK FILTERS -->
+
+  <div class="quick-filters">
+
+    <button class="quick-filter active" data-filter="all">
+      All
+    </button>
+
+    <button class="quick-filter" data-filter="rishikesh">
+      Rishikesh
+    </button>
+
+    <button class="quick-filter" data-filter="mussoorie">
+      Mussoorie
+    </button>
+
+    <button class="quick-filter" data-filter="nainital">
+      Nainital
+    </button>
+
+    <button class="quick-filter" data-filter="auli">
+      Auli
+    </button>
+
+  </div>
+
+
+  <!-- RESULTS -->
+
+  <div class="explore-result-head">
+    <div>
+      <p>HANDPICKED HOMESTAYS</p>
+      <h3 id="resultTitle">Popular stays</h3>
+    </div>
+
+    <span id="resultCount">12 stays</span>
+  </div>
+
+
+  <div class="explore-list" id="exploreList">
+
+    <!-- RESULT 1 -->
+
+    <article
+      class="explore-card"
+      data-city="rishikesh"
+      data-name="Riverstone Retreat"
+    >
+
+      <div class="explore-card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=85"
+          alt="Riverstone Retreat"
+        >
+
+        <button class="explore-heart">♡</button>
+
+        <span class="explore-badge">4.8 ★</span>
+
+      </div>
+
+      <div class="explore-card-info">
+
+        <small>Rishikesh • Riverside</small>
+
+        <h4>Riverstone Retreat</h4>
+
+        <p>Peaceful rooms surrounded by hills and flowing water.</p>
+
+        <div class="explore-price">
+          <strong>₹1,899</strong>
+          <span>/ night</span>
+
+          <button class="explore-view" data-stay="Riverstone Retreat">
+            View
+          </button>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- RESULT 2 -->
+
+    <article
+      class="explore-card"
+      data-city="mussoorie"
+      data-name="Pine Valley House"
+    >
+
+      <div class="explore-card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=900&q=85"
+          alt="Pine Valley House"
+        >
+
+        <button class="explore-heart">♡</button>
+
+        <span class="explore-badge">4.9 ★</span>
+
+      </div>
+
+      <div class="explore-card-info">
+
+        <small>Mussoorie • Mountain View</small>
+
+        <h4>Pine Valley House</h4>
+
+        <p>A cozy hillside homestay with beautiful sunrise views.</p>
+
+        <div class="explore-price">
+          <strong>₹2,299</strong>
+          <span>/ night</span>
+
+          <button class="explore-view" data-stay="Pine Valley House">
+            View
+          </button>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- RESULT 3 -->
+
+    <article
+      class="explore-card"
+      data-city="nainital"
+      data-name="Lakeview Nest"
+    >
+
+      <div class="explore-card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=85"
+          alt="Lakeview Nest"
+        >
+
+        <button class="explore-heart">♡</button>
+
+        <span class="explore-badge">4.7 ★</span>
+
+      </div>
+
+      <div class="explore-card-info">
+
+        <small>Nainital • Lake View</small>
+
+        <h4>Lakeview Nest</h4>
+
+        <p>Warm wooden rooms just minutes away from Naini Lake.</p>
+
+        <div class="explore-price">
+          <strong>₹2,099</strong>
+          <span>/ night</span>
+
+          <button class="explore-view" data-stay="Lakeview Nest">
+            View
+          </button>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- RESULT 4 -->
+
+    <article
+      class="explore-card"
+      data-city="auli"
+      data-name="Snow Peak Cottage"
+    >
+
+      <div class="explore-card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=900&q=85"
+          alt="Snow Peak Cottage"
+        >
+
+        <button class="explore-heart">♡</button>
+
+        <span class="explore-badge">4.9 ★</span>
+
+      </div>
+
+      <div class="explore-card-info">
+
+        <small>Auli • Snow Valley</small>
+
+        <h4>Snow Peak Cottage</h4>
+
+        <p>Mountain cabin surrounded by peaceful Himalayan scenery.</p>
+
+        <div class="explore-price">
+          <strong>₹2,799</strong>
+          <span>/ night</span>
+
+          <button class="explore-view" data-stay="Snow Peak Cottage">
+            View
+          </button>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* ================= EXPLORE ================= */
+
+.explore-page{
+  display:none;
+  min-height:100vh;
+  padding:22px 16px 110px;
+  background:#050807;
+}
+
+.explore-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.explore-top p{
+  margin:0 0 3px;
+  color:#78e08f;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.explore-top h2{
+  margin:0;
+  color:#fff;
+  font-size:25px;
+}
+
+.back-btn,
+.filter-btn{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.filter-btn{
+  font-size:19px;
+}
+
+
+/* SEARCH */
+
+.explore-search{
+  height:50px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 15px;
+  border-radius:16px;
+  background:#0d1411;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.explore-search span{
+  color:#78e08f;
+  font-size:23px;
+}
+
+.explore-search input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  font-size:13px;
+}
+
+.explore-search input::placeholder{
+  color:#69756f;
+}
+
+
+/* FILTERS */
+
+.quick-filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  margin:15px 0 24px;
+}
+
+.quick-filters::-webkit-scrollbar{
+  display:none;
+}
+
+.quick-filter{
+  flex:0 0 auto;
+  padding:9px 14px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#8c9992;
+  font-size:11px;
+  font-weight:700;
+}
+
+.quick-filter.active{
+  background:#78e08f;
+  border-color:#78e08f;
+  color:#061009;
+}
+
+
+/* RESULT HEAD */
+
+.explore-result-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:13px;
+}
+
+.explore-result-head p{
+  margin:0 0 4px;
+  color:#69756f;
+  font-size:8px;
+  letter-spacing:1.2px;
+  font-weight:800;
+}
+
+.explore-result-head h3{
+  margin:0;
+  color:#fff;
+  font-size:18px;
+}
+
+#resultCount{
+  color:#69756f;
+  font-size:10px;
+}
+
+
+/* CARDS */
+
+.explore-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.explore-card{
+  display:flex;
+  gap:12px;
+  padding:9px;
+  border-radius:19px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.explore-card-image{
+  width:120px;
+  height:145px;
+  flex:0 0 120px;
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.explore-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.explore-heart{
+  position:absolute;
+  right:7px;
+  top:7px;
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:18px;
+}
+
+.explore-badge{
+  position:absolute;
+  left:7px;
+  bottom:7px;
+  padding:5px 7px;
+  border-radius:8px;
+  background:rgba(0,0,0,.7);
+  color:#ffd76a;
+  font-size:9px;
+  font-weight:800;
+}
+
+.explore-card-info{
+  min-width:0;
+  flex:1;
+  padding:4px 2px;
+}
+
+.explore-card-info small{
+  color:#78e08f;
+  font-size:8px;
+  font-weight:700;
+}
+
+.explore-card-info h4{
+  margin:7px 0 6px;
+  color:#fff;
+  font-size:15px;
+}
+
+.explore-card-info p{
+  margin:0;
+  color:#7d8982;
+  font-size:10px;
+  line-height:1.45;
+}
+
+.explore-price{
+  display:flex;
+  align-items:center;
+  margin-top:12px;
+}
+
+.explore-price strong{
+  color:#fff;
+  font-size:14px;
+}
+
+.explore-price span{
+  margin-left:3px;
+  color:#69756f;
+  font-size:9px;
+}
+
+.explore-view{
+  margin-left:auto;
+  border:0;
+  border-radius:9px;
+  padding:7px 10px;
+  background:#78e08f;
+  color:#071009;
+  font-size:9px;
+  font-weight:900;
+}
+
+</style>
+<!-- ================= PART 4 : STAY DETAILS ================= -->
+
+<section class="detail-page" id="detailPage">
+
+  <div class="detail-image-wrap">
+
+    <img
+      id="detailImage"
+      src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1000&q=90"
+      alt="Stay"
+    >
+
+    <button class="detail-back" id="detailBack">‹</button>
+
+    <button class="detail-save" id="detailSave">♡</button>
+
+    <div class="detail-image-count">1 / 5</div>
+
+  </div>
+
+
+  <div class="detail-content">
+
+    <div class="detail-location" id="detailLocation">
+      📍 Mukteshwar, Uttarakhand
+    </div>
+
+    <div class="detail-title-row">
+
+      <div>
+        <h2 id="detailName">Pahadi Pearl Cottage</h2>
+
+        <div class="detail-rating">
+          ★ <strong id="detailRating">4.9</strong>
+          <span> · 126 reviews</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="detail-divider"></div>
+
+
+    <!-- ABOUT -->
+
+    <div class="detail-section">
+
+      <h3>About this stay</h3>
+
+      <p id="detailDescription">
+        A peaceful mountain cottage surrounded by pine trees,
+        fresh air and beautiful Himalayan views. Perfect for
+        couples, families and weekend escapes.
+      </p>
+
+    </div>
+
+
+    <!-- FACILITIES -->
+
+    <div class="detail-section">
+
+      <h3>What this place offers</h3>
+
+      <div class="facility-grid">
+
+        <div class="facility">
+          <span>📶</span>
+          <p>Free Wi-Fi</p>
+        </div>
+
+        <div class="facility">
+          <span>🅿️</span>
+          <p>Free Parking</p>
+        </div>
+
+        <div class="facility">
+          <span>🔥</span>
+          <p>Bonfire</p>
+        </div>
+
+        <div class="facility">
+          <span>🍳</span>
+          <p>Breakfast</p>
+        </div>
+
+        <div class="facility">
+          <span>🌄</span>
+          <p>Mountain View</p>
+        </div>
+
+        <div class="facility">
+          <span>☕</span>
+          <p>Café</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HOST -->
+
+    <div class="host-box">
+
+      <div class="host-avatar">P</div>
+
+      <div>
+        <small>YOUR HOST</small>
+        <h4>Prakash & Family</h4>
+        <p>Hosting guests since 2021</p>
+      </div>
+
+      <button>›</button>
+
+    </div>
+
+
+    <!-- BOOKING BAR -->
+
+    <div class="detail-book-bar">
+
+      <div>
+        <small>FROM</small>
+
+        <strong id="detailPrice">₹2,499</strong>
+
+        <span>/ night</span>
+      </div>
+
+      <button id="bookNowBtn">
+        Book now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* ================= DETAIL PAGE ================= */
+
+.detail-page{
+  display:none;
+  min-height:100vh;
+  background:#050807;
+  padding-bottom:95px;
+}
+
+.detail-image-wrap{
+  height:330px;
+  position:relative;
+  overflow:hidden;
+}
+
+.detail-image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.detail-image-wrap:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    transparent 35%,
+    rgba(5,8,7,.95)
+  );
+  pointer-events:none;
+}
+
+.detail-back,
+.detail-save{
+  position:absolute;
+  z-index:3;
+  top:18px;
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-size:25px;
+}
+
+.detail-back{
+  left:16px;
+}
+
+.detail-save{
+  right:16px;
+  font-size:21px;
+}
+
+.detail-save.saved{
+  color:#78e08f;
+}
+
+.detail-image-count{
+  position:absolute;
+  z-index:3;
+  right:16px;
+  bottom:18px;
+  padding:7px 10px;
+  border-radius:10px;
+  background:rgba(0,0,0,.6);
+  color:#fff;
+  font-size:10px;
+}
+
+
+/* CONTENT */
+
+.detail-content{
+  position:relative;
+  margin-top:-25px;
+  padding:0 18px;
+  z-index:4;
+}
+
+.detail-location{
+  color:#78e08f;
+  font-size:10px;
+  font-weight:700;
+}
+
+.detail-title-row{
+  margin-top:8px;
+}
+
+.detail-title-row h2{
+  margin:0;
+  color:#fff;
+  font-size:25px;
+  line-height:1.15;
+}
+
+.detail-rating{
+  margin-top:8px;
+  color:#ffd76a;
+  font-size:12px;
+}
+
+.detail-rating span{
+  color:#7b8780;
+}
+
+.detail-divider{
+  height:1px;
+  margin:20px 0;
+  background:rgba(255,255,255,.07);
+}
+
+
+/* SECTIONS */
+
+.detail-section{
+  margin-bottom:24px;
+}
+
+.detail-section h3{
+  margin:0 0 10px;
+  color:#fff;
+  font-size:16px;
+}
+
+.detail-section > p{
+  margin:0;
+  color:#89948e;
+  font-size:12px;
+  line-height:1.7;
+}
+
+
+/* FACILITIES */
+
+.facility-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.facility{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:13px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.facility span{
+  font-size:17px;
+}
+
+.facility p{
+  margin:0;
+  color:#b7c0ba;
+  font-size:10px;
+}
+
+
+/* HOST */
+
+.host-box{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:14px;
+  margin-bottom:20px;
+  border-radius:17px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.host-avatar{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#183a23;
+  color:#78e08f;
+  font-weight:900;
+}
+
+.host-box small{
+  color:#69756f;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.host-box h4{
+  margin:3px 0;
+  color:#fff;
+  font-size:12px;
+}
+
+.host-box p{
+  margin:0;
+  color:#737f78;
+  font-size:9px;
+}
+
+.host-box button{
+  margin-left:auto;
+  border:0;
+  background:transparent;
+  color:#8d9992;
+  font-size:25px;
+}
+
+
+/* BOOK BAR */
+
+.detail-book-bar{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(480px,100%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px 18px;
+  background:rgba(7,11,9,.96);
+  border-top:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  z-index:20;
+}
+
+.detail-book-bar small{
+  display:block;
+  color:#69756f;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.detail-book-bar strong{
+  color:#fff;
+  font-size:18px;
+}
+
+.detail-book-bar span{
+  color:#69756f;
+  font-size:9px;
+}
+
+#bookNowBtn{
+  border:0;
+  border-radius:13px;
+  padding:13px 23px;
+  background:#78e08f;
+  color:#061009;
+  font-size:12px;
+  font-weight:900;
+}
+
+.detail-back:active,
+.detail-save:active,
+#bookNowBtn:active{
+  transform:scale(.94);
+}
+
+</style>
+<!-- ================= PART 5 : BOOKING PAGE ================= -->
+
+<section class="booking-page" id="bookingPage">
+
+  <div class="booking-head">
+
+    <button class="booking-back" id="bookingBack">‹</button>
+
+    <div>
+      <p>PAHADISTAY</p>
+      <h2>Reserve your stay</h2>
+    </div>
+
+  </div>
+
+
+  <!-- SELECTED STAY -->
+
+  <div class="booking-stay">
+
+    <img
+      id="bookingImage"
+      src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=500&q=85"
+      alt="Stay"
+    >
+
+    <div>
+      <small>YOUR STAY</small>
+      <h3 id="bookingStayName">Pahadi Pearl Cottage</h3>
+      <p id="bookingStayLocation">📍 Mukteshwar, Uttarakhand</p>
+    </div>
+
+  </div>
+
+
+  <!-- DATES -->
+
+  <div class="booking-box">
+
+    <div class="booking-label">
+      <span>📅</span>
+      <div>
+        <small>CHECK-IN</small>
+        <strong id="checkInText">Select date</strong>
+      </div>
+    </div>
+
+    <input
+      type="date"
+      id="checkIn"
+    >
+
+  </div>
+
+
+  <div class="booking-box">
+
+    <div class="booking-label">
+      <span>📅</span>
+      <div>
+        <small>CHECK-OUT</small>
+        <strong id="checkOutText">Select date</strong>
+      </div>
+    </div>
+
+    <input
+      type="date"
+      id="checkOut"
+    >
+
+  </div>
+
+
+  <!-- GUESTS -->
+
+  <div class="guest-box">
+
+    <div>
+      <small>GUESTS</small>
+      <h3>Guests & rooms</h3>
+      <p>Choose the number of guests staying.</p>
+    </div>
+
+    <div class="guest-control">
+
+      <button id="guestMinus">−</button>
+
+      <strong id="guestCount">2</strong>
+
+      <button id="guestPlus">+</button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ROOMS -->
+
+  <div class="guest-box">
+
+    <div>
+      <small>ROOMS</small>
+      <h3>Rooms</h3>
+      <p>How many rooms do you need?</p>
+    </div>
+
+    <div class="guest-control">
+
+      <button id="roomMinus">−</button>
+
+      <strong id="roomCount">1</strong>
+
+      <button id="roomPlus">+</button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONTINUE -->
+
+  <button class="continue-booking" id="continueBooking">
+    Continue
+    <span>→</span>
+  </button>
+
+</section>
+
+
+<style>
+
+/* ================= BOOKING PAGE ================= */
+
+.booking-page{
+  display:none;
+  min-height:100vh;
+  padding:22px 17px 40px;
+  background:#050807;
+}
+
+.booking-head{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:22px;
+}
+
+.booking-back{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:25px;
+}
+
+.booking-head p{
+  margin:0 0 3px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.booking-head h2{
+  margin:0;
+  color:#fff;
+  font-size:22px;
+}
+
+
+/* SELECTED STAY */
+
+.booking-stay{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px;
+  margin-bottom:18px;
+  border-radius:18px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.booking-stay img{
+  width:72px;
+  height:72px;
+  border-radius:13px;
+  object-fit:cover;
+}
+
+.booking-stay small,
+.guest-box small{
+  color:#69756f;
+  font-size:7px;
+  letter-spacing:1px;
+  font-weight:800;
+}
+
+.booking-stay h3{
+  margin:4px 0;
+  color:#fff;
+  font-size:13px;
+}
+
+.booking-stay p{
+  margin:0;
+  color:#7e8983;
+  font-size:9px;
+}
+
+
+/* DATE BOX */
+
+.booking-box{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px;
+  margin-bottom:10px;
+  border-radius:16px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.booking-label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.booking-label > span{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:#15241a;
+  font-size:17px;
+}
+
+.booking-label small{
+  display:block;
+  color:#69756f;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.booking-label strong{
+  display:block;
+  margin-top:4px;
+  color:#fff;
+  font-size:12px;
+}
+
+.booking-box input{
+  position:absolute;
+  right:12px;
+  width:34px;
+  height:34px;
+  opacity:0;
+  cursor:pointer;
+}
+
+
+/* GUEST */
+
+.guest-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:15px;
+  margin-top:10px;
+  border-radius:16px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.guest-box h3{
+  margin:5px 0 3px;
+  color:#fff;
+  font-size:13px;
+}
+
+.guest-box p{
+  margin:0;
+  color:#737e78;
+  font-size:9px;
+}
+
+.guest-control{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.guest-control button{
+  width:31px;
+  height:31px;
+  border-radius:10px;
+  border:1px solid rgba(120,224,143,.2);
+  background:#122018;
+  color:#78e08f;
+  font-size:18px;
+}
+
+.guest-control strong{
+  min-width:16px;
+  text-align:center;
+  color:#fff;
+  font-size:13px;
+}
+
+
+/* CONTINUE */
+
+.continue-booking{
+  width:100%;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  margin-top:22px;
+  border:0;
+  border-radius:16px;
+  background:#78e08f;
+  color:#061009;
+  font-size:13px;
+  font-weight:900;
+}
+
+.continue-booking span{
+  font-size:20px;
+}
+
+.continue-booking:active{
+  transform:scale(.98);
+}
+
+</style>
+<!-- ================= PART 6 : GUEST DETAILS ================= -->
+
+<section class="guest-details-page" id="guestDetailsPage">
+
+  <div class="details-head">
+
+    <button class="details-back" id="detailsBack">‹</button>
+
+    <div>
+      <p>ALMOST THERE</p>
+      <h2>Guest details</h2>
+    </div>
+
+  </div>
+
+
+  <!-- BOOKING SUMMARY -->
+
+  <div class="summary-card">
+
+    <div class="summary-row">
+      <span>Stay</span>
+      <strong id="summaryStay">Pahadi Pearl Cottage</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Dates</span>
+      <strong id="summaryDates">Select dates</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Guests</span>
+      <strong id="summaryGuests">2 Guests • 1 Room</strong>
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-row total-row">
+      <span>Total</span>
+      <strong id="summaryTotal">₹2,499</strong>
+    </div>
+
+  </div>
+
+
+  <!-- FORM -->
+
+  <div class="details-form">
+
+    <label>
+      Full name
+      <input
+        type="text"
+        id="guestName"
+        placeholder="Enter your full name"
+      >
+    </label>
+
+    <label>
+      Mobile number
+      <input
+        type="tel"
+        id="guestPhone"
+        maxlength="10"
+        placeholder="10-digit mobile number"
+      >
+    </label>
+
+    <label>
+      Email address
+      <input
+        type="email"
+        id="guestEmail"
+        placeholder="you@example.com"
+      >
+    </label>
+
+    <label>
+      Special request
+      <textarea
+        id="guestRequest"
+        rows="3"
+        placeholder="Any special request? (optional)"
+      ></textarea>
+    </label>
+
+  </div>
+
+
+  <button class="confirm-booking" id="confirmBooking">
+    Confirm booking
+    <span>→</span>
+  </button>
+
+</section>
+
+
+<style>
+
+/* ================= GUEST DETAILS ================= */
+
+.guest-details-page{
+  display:none;
+  min-height:100vh;
+  padding:22px 17px 40px;
+  background:#050807;
+}
+
+.details-head{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:20px;
+}
+
+.details-back{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:25px;
+}
+
+.details-head p{
+  margin:0 0 3px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.4px;
+}
+
+.details-head h2{
+  margin:0;
+  color:#fff;
+  font-size:22px;
+}
+
+
+/* SUMMARY */
+
+.summary-card{
+  padding:16px;
+  border-radius:18px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+  margin-bottom:20px;
+}
+
+.summary-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:8px 0;
+}
+
+.summary-row span{
+  color:#737e78;
+  font-size:10px;
+}
+
+.summary-row strong{
+  color:#fff;
+  font-size:10px;
+  text-align:right;
+}
+
+.summary-divider{
+  height:1px;
+  background:rgba(255,255,255,.07);
+  margin:8px 0;
+}
+
+.total-row{
+  padding-bottom:0;
+}
+
+.total-row span{
+  color:#fff;
+  font-size:12px;
+}
+
+.total-row strong{
+  color:#78e08f;
+  font-size:19px;
+}
+
+
+/* FORM */
+
+.details-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.details-form label{
+  color:#aab3ad;
+  font-size:10px;
+  font-weight:700;
+}
+
+.details-form input,
+.details-form textarea{
+  width:100%;
+  box-sizing:border-box;
+  margin-top:7px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;
+  outline:none;
+  background:#0c1210;
+  color:#fff;
+  font-family:inherit;
+  font-size:12px;
+}
+
+.details-form textarea{
+  resize:none;
+}
+
+.details-form input:focus,
+.details-form textarea:focus{
+  border-color:rgba(120,224,143,.5);
+}
+
+.details-form input::placeholder,
+.details-form textarea::placeholder{
+  color:#59645e;
+}
+
+
+/* CONFIRM */
+
+.confirm-booking{
+  width:100%;
+  height:54px;
+  margin-top:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  border:0;
+  border-radius:16px;
+  background:#78e08f;
+  color:#061009;
+  font-size:13px;
+  font-weight:900;
+}
+
+.confirm-booking span{
+  font-size:20px;
+}
+
+.confirm-booking:active{
+  transform:scale(.98);
+}
+
+</style>
+<!-- ================= PART 7 : BOOKING SUCCESS ================= -->
+
+<section class="success-page" id="successPage">
+
+  <div class="success-icon">
+    ✓
+  </div>
+
+  <p class="success-label">BOOKING CONFIRMED</p>
+
+  <h2>You're all set! 🎉</h2>
+
+  <p class="success-text">
+    Your mountain escape has been booked successfully.
+  </p>
+
+
+  <!-- BOOKING ID -->
+
+  <div class="booking-id-box">
+
+    <span>BOOKING ID</span>
+
+    <strong id="bookingId">
+      PS-000000
+    </strong>
+
+  </div>
+
+
+  <!-- CONFIRMATION CARD -->
+
+  <div class="confirmation-card">
+
+    <div class="confirmation-top">
+
+      <img
+        id="successImage"
+        src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=500&q=85"
+        alt="Stay"
+      >
+
+      <div>
+        <small>YOUR STAY</small>
+
+        <h3 id="successStay">
+          Pahadi Pearl Cottage
+        </h3>
+
+        <p id="successLocation">
+          📍 Mukteshwar, Uttarakhand
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="confirmation-line"></div>
+
+
+    <div class="confirmation-details">
+
+      <div>
+        <span>CHECK-IN</span>
+        <strong id="successCheckIn">—</strong>
+      </div>
+
+      <div>
+        <span>CHECK-OUT</span>
+        <strong id="successCheckOut">—</strong>
+      </div>
+
+      <div>
+        <span>GUESTS</span>
+        <strong id="successGuests">2 Guests</strong>
+      </div>
+
+      <div>
+        <span>TOTAL</span>
+        <strong id="successTotal">₹2,499</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ACTIONS -->
+
+  <button class="success-primary" id="myBookingsBtn">
+    View my bookings
+    <span>→</span>
+  </button>
+
+  <button class="success-secondary" id="homeFromSuccess">
+    Back to home
+  </button>
+
+</section>
+
+
+<style>
+
+/* ================= SUCCESS PAGE ================= */
+
+.success-page{
+  display:none;
+  min-height:100vh;
+  padding:55px 17px 40px;
+  background:#050807;
+  text-align:center;
+}
+
+.success-icon{
+  width:72px;
+  height:72px;
+  margin:0 auto 18px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#173b23;
+  border:1px solid rgba(120,224,143,.3);
+  color:#78e08f;
+  font-size:38px;
+  font-weight:500;
+  box-shadow:
+    0 0 35px rgba(120,224,143,.12);
+}
+
+.success-label{
+  margin:0;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.6px;
+}
+
+.success-page h2{
+  margin:8px 0 6px;
+  color:#fff;
+  font-size:27px;
+}
+
+.success-text{
+  max-width:280px;
+  margin:0 auto 22px;
+  color:#7e8983;
+  font-size:11px;
+  line-height:1.6;
+}
+
+
+/* BOOKING ID */
+
+.booking-id-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px 15px;
+  margin-bottom:14px;
+  border-radius:14px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+  text-align:left;
+}
+
+.booking-id-box span{
+  color:#68736d;
+  font-size:8px;
+  letter-spacing:1px;
+}
+
+.booking-id-box strong{
+  color:#fff;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+
+/* CONFIRMATION CARD */
+
+.confirmation-card{
+  padding:14px;
+  border-radius:18px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+  text-align:left;
+}
+
+.confirmation-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.confirmation-top img{
+  width:65px;
+  height:65px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+.confirmation-top small{
+  color:#68736d;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.confirmation-top h3{
+  margin:5px 0;
+  color:#fff;
+  font-size:13px;
+}
+
+.confirmation-top p{
+  margin:0;
+  color:#7e8983;
+  font-size:9px;
+}
+
+.confirmation-line{
+  height:1px;
+  margin:15px 0;
+  background:rgba(255,255,255,.07);
+}
+
+.confirmation-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.confirmation-details span{
+  display:block;
+  color:#68736d;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.confirmation-details strong{
+  display:block;
+  margin-top:5px;
+  color:#fff;
+  font-size:11px;
+}
+
+
+/* BUTTONS */
+
+.success-primary{
+  width:100%;
+  height:52px;
+  margin-top:18px;
+  border:0;
+  border-radius:15px;
+  background:#78e08f;
+  color:#061009;
+  font-size:12px;
+  font-weight:900;
+}
+
+.success-primary span{
+  margin-left:15px;
+  font-size:18px;
+}
+
+.success-secondary{
+  width:100%;
+  height:48px;
+  margin-top:9px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  background:#0c1210;
+  color:#aab3ad;
+  font-size:11px;
+  font-weight:700;
+}
+
+.success-primary:active,
+.success-secondary:active{
+  transform:scale(.98);
+}
+
+</style>
+<!-- ================= PART 8 : MY BOOKINGS ================= -->
+
+<section class="bookings-page" id="bookingsPage">
+
+  <div class="bookings-head">
+
+    <div>
+      <p>PAHADISTAY</p>
+      <h2>My bookings</h2>
+    </div>
+
+    <button class="booking-home-btn" id="bookingsHome">⌂</button>
+
+  </div>
+
+
+  <!-- TABS -->
+
+  <div class="booking-tabs">
+
+    <button class="booking-tab active">
+      Upcoming
+    </button>
+
+    <button class="booking-tab">
+      Completed
+    </button>
+
+  </div>
+
+
+  <!-- BOOKING LIST -->
+
+  <div id="bookingList">
+
+    <div class="empty-bookings" id="emptyBookings">
+
+      <div class="empty-icon">⌂</div>
+
+      <h3>No bookings yet</h3>
+
+      <p>
+        Your confirmed stays will appear here.
+      </p>
+
+      <button id="exploreFromBookings">
+        Explore stays
+      </button>
+
+    </div>
+
+
+    <!-- REAL BOOKING CARD -->
+
+    <article
+      class="my-booking-card"
+      id="myBookingCard"
+    >
+
+      <div class="my-booking-image">
+
+        <img
+          id="myBookingImage"
+          src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=600&q=85"
+          alt="Booked stay"
+        >
+
+        <span>CONFIRMED</span>
+
+      </div>
+
+
+      <div class="my-booking-info">
+
+        <small id="myBookingLocation">
+          📍 Mukteshwar, Uttarakhand
+        </small>
+
+        <h3 id="myBookingName">
+          Pahadi Pearl Cottage
+        </h3>
+
+        <div class="my-booking-date">
+
+          <div>
+            <span>CHECK-IN</span>
+            <strong id="myBookingCheckIn">—</strong>
+          </div>
+
+          <div>
+            <span>CHECK-OUT</span>
+            <strong id="myBookingCheckOut">—</strong>
+          </div>
+
+        </div>
+
+
+        <div class="my-booking-bottom">
+
+          <strong id="myBookingTotal">
+            ₹2,499
+          </strong>
+
+          <button id="bookingDetailsBtn">
+            Details
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* ================= BOOKINGS PAGE ================= */
+
+.bookings-page{
+  display:none;
+  min-height:100vh;
+  padding:24px 17px 40px;
+  background:#050807;
+}
+
+.bookings-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.bookings-head p{
+  margin:0 0 4px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.bookings-head h2{
+  margin:0;
+  color:#fff;
+  font-size:24px;
+}
+
+.booking-home-btn{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:19px;
+}
+
+
+/* TABS */
+
+.booking-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.booking-tab{
+  flex:1;
+  height:40px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  background:#0c1210;
+  color:#69756f;
+  font-size:10px;
+  font-weight:800;
+}
+
+.booking-tab.active{
+  background:#18351f;
+  border-color:rgba(120,224,143,.25);
+  color:#78e08f;
+}
+
+
+/* EMPTY */
+
+.empty-bookings{
+  padding:55px 20px;
+  text-align:center;
+  border:1px dashed rgba(255,255,255,.08);
+  border-radius:20px;
+}
+
+.empty-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 14px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:#101a14;
+  color:#78e08f;
+  font-size:24px;
+}
+
+.empty-bookings h3{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:16px;
+}
+
+.empty-bookings p{
+  margin:0 0 17px;
+  color:#69756f;
+  font-size:10px;
+}
+
+.empty-bookings button{
+  border:0;
+  border-radius:11px;
+  padding:11px 17px;
+  background:#78e08f;
+  color:#061009;
+  font-size:10px;
+  font-weight:900;
+}
+
+
+/* BOOKING CARD */
+
+.my-booking-card{
+  display:none;
+  overflow:hidden;
+  border-radius:19px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.my-booking-image{
+  height:175px;
+  position:relative;
+}
+
+.my-booking-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.my-booking-image span{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:7px 9px;
+  border-radius:8px;
+  background:#173b23;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+}
+
+.my-booking-info{
+  padding:15px;
+}
+
+.my-booking-info > small{
+  color:#78e08f;
+  font-size:9px;
+}
+
+.my-booking-info h3{
+  margin:6px 0 15px;
+  color:#fff;
+  font-size:17px;
+}
+
+.my-booking-date{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.my-booking-date div{
+  padding:10px;
+  border-radius:11px;
+  background:#101814;
+}
+
+.my-booking-date span{
+  display:block;
+  color:#68736d;
+  font-size:7px;
+  letter-spacing:1px;
+}
+
+.my-booking-date strong{
+  display:block;
+  margin-top:5px;
+  color:#fff;
+  font-size:10px;
+}
+
+.my-booking-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:14px;
+}
+
+.my-booking-bottom > strong{
+  color:#78e08f;
+  font-size:16px;
+}
+
+.my-booking-bottom button{
+  border:1px solid rgba(120,224,143,.2);
+  border-radius:10px;
+  padding:8px 13px;
+  background:#122018;
+  color:#78e08f;
+  font-size:9px;
+  font-weight:800;
+}
+
+</style>
+<!-- ================= PART 9 : PROFILE PAGE ================= -->
+
+<section class="profile-page" id="profilePage">
+
+  <div class="profile-head">
+
+    <button class="profile-back" id="profileBack">‹</button>
+
+    <div>
+      <p>PAHADISTAY</p>
+      <h2>My profile</h2>
+    </div>
+
+  </div>
+
+
+  <!-- PROFILE CARD -->
+
+  <div class="profile-card">
+
+    <div class="profile-avatar">
+      A
+    </div>
+
+    <div class="profile-user">
+
+      <h3 id="profileName">
+        Anuj
+      </h3>
+
+      <p id="profileEmail">
+        Guest traveller
+      </p>
+
+      <span>✦ Mountain Explorer</span>
+
+    </div>
+
+    <button id="editProfileBtn">
+      Edit
+    </button>
+
+  </div>
+
+
+  <!-- STATS -->
+
+  <div class="profile-stats">
+
+    <div>
+      <strong id="profileBookings">0</strong>
+      <span>Bookings</span>
+    </div>
+
+    <div>
+      <strong id="profileSaved">0</strong>
+      <span>Saved</span>
+    </div>
+
+    <div>
+      <strong>0</strong>
+      <span>Reviews</span>
+    </div>
+
+  </div>
+
+
+  <!-- MENU -->
+
+  <div class="profile-menu">
+
+    <button class="profile-menu-item" id="profileBookingsBtn">
+
+      <div class="menu-icon">▣</div>
+
+      <div>
+        <strong>My bookings</strong>
+        <span>View your upcoming stays</span>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+
+    <button class="profile-menu-item" id="profileSavedBtn">
+
+      <div class="menu-icon">♡</div>
+
+      <div>
+        <strong>Saved stays</strong>
+        <span>Your favourite homestays</span>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+
+    <button class="profile-menu-item" id="helpBtn">
+
+      <div class="menu-icon">?</div>
+
+      <div>
+        <strong>Help & support</strong>
+        <span>We're here to help you</span>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+
+    <button class="profile-menu-item" id="aboutBtn">
+
+      <div class="menu-icon">i</div>
+
+      <div>
+        <strong>About PahadiStay</strong>
+        <span>Discover Uttarakhand with us</span>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+  </div>
+
+
+  <p class="profile-footer">
+    PAHADISTAY • UTTARAKHAND
+  </p>
+
+</section>
+
+
+<style>
+
+/* ================= PROFILE PAGE ================= */
+
+.profile-page{
+  display:none;
+  min-height:100vh;
+  padding:24px 17px 40px;
+  background:#050807;
+}
+
+.profile-head{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:20px;
+}
+
+.profile-back{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:25px;
+}
+
+.profile-head p{
+  margin:0 0 3px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.profile-head h2{
+  margin:0;
+  color:#fff;
+  font-size:23px;
+}
+
+
+/* PROFILE CARD */
+
+.profile-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #101c15,
+    #0c1210
+  );
+  border:1px solid rgba(120,224,143,.12);
+}
+
+.profile-avatar{
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:#193b24;
+  color:#78e08f;
+  font-size:22px;
+  font-weight:900;
+}
+
+.profile-user{
+  min-width:0;
+  flex:1;
+}
+
+.profile-user h3{
+  margin:0 0 3px;
+  color:#fff;
+  font-size:16px;
+}
+
+.profile-user p{
+  margin:0 0 5px;
+  color:#727e77;
+  font-size:9px;
+}
+
+.profile-user span{
+  color:#78e08f;
+  font-size:8px;
+  font-weight:800;
+}
+
+.profile-card > button{
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:9px;
+  padding:7px 10px;
+  background:#101814;
+  color:#aeb7b1;
+  font-size:9px;
+}
+
+
+/* STATS */
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin:13px 0 20px;
+  padding:15px 5px;
+  border-radius:17px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.profile-stats div{
+  text-align:center;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+
+.profile-stats div:last-child{
+  border-right:0;
+}
+
+.profile-stats strong{
+  display:block;
+  color:#fff;
+  font-size:17px;
+}
+
+.profile-stats span{
+  display:block;
+  margin-top:4px;
+  color:#68736d;
+  font-size:8px;
+}
+
+
+/* MENU */
+
+.profile-menu{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.profile-menu-item{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:15px;
+  background:#0c1210;
+  text-align:left;
+}
+
+.menu-icon{
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:#142019;
+  color:#78e08f;
+  font-size:15px;
+}
+
+.profile-menu-item div:nth-child(2){
+  flex:1;
+}
+
+.profile-menu-item strong{
+  display:block;
+  color:#fff;
+  font-size:11px;
+}
+
+.profile-menu-item span{
+  display:block;
+  margin-top:4px;
+  color:#68736d;
+  font-size:8px;
+}
+
+.profile-menu-item b{
+  color:#69756f;
+  font-size:20px;
+}
+
+.profile-footer{
+  margin:30px 0 0;
+  text-align:center;
+  color:#303a34;
+  font-size:8px;
+  letter-spacing:1.5px;
+}
+
+</style>
+<!-- ================= PART 10 : SAVED STAYS ================= -->
+
+<section class="saved-page" id="savedPage">
+
+  <div class="saved-head">
+
+    <button class="saved-back" id="savedBack">‹</button>
+
+    <div>
+      <p>YOUR COLLECTION</p>
+      <h2>Saved stays</h2>
+    </div>
+
+  </div>
+
+
+  <div class="saved-empty" id="savedEmpty">
+
+    <div class="saved-big-icon">♡</div>
+
+    <h3>Your favourites live here</h3>
+
+    <p>
+      Tap the heart on any stay you love and
+      it will appear in this collection.
+    </p>
+
+    <button id="savedExplore">
+      Explore stays
+    </button>
+
+  </div>
+
+
+  <div class="saved-list" id="savedList"></div>
+
+</section>
+
+
+<style>
+
+/* ================= SAVED PAGE ================= */
+
+.saved-page{
+  display:none;
+  min-height:100vh;
+  padding:24px 17px 40px;
+  background:#050807;
+}
+
+.saved-head{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:22px;
+}
+
+.saved-back{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0d1411;
+  color:#fff;
+  font-size:25px;
+}
+
+.saved-head p{
+  margin:0 0 3px;
+  color:#78e08f;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.4px;
+}
+
+.saved-head h2{
+  margin:0;
+  color:#fff;
+  font-size:23px;
+}
+
+
+/* EMPTY */
+
+.saved-empty{
+  padding:55px 20px;
+  text-align:center;
+  border:1px dashed rgba(255,255,255,.08);
+  border-radius:20px;
+}
+
+.saved-big-icon{
+  width:65px;
+  height:65px;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+  border-radius:20px;
+  background:#101a14;
+  color:#78e08f;
+  font-size:29px;
+}
+
+.saved-empty h3{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:16px;
+}
+
+.saved-empty p{
+  max-width:260px;
+  margin:0 auto 18px;
+  color:#69756f;
+  font-size:10px;
+  line-height:1.6;
+}
+
+.saved-empty button{
+  border:0;
+  border-radius:11px;
+  padding:11px 18px;
+  background:#78e08f;
+  color:#061009;
+  font-size:10px;
+  font-weight:900;
+}
+
+
+/* SAVED LIST */
+
+.saved-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.saved-card{
+  display:flex;
+  gap:11px;
+  padding:9px;
+  border-radius:17px;
+  background:#0c1210;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.saved-card img{
+  width:105px;
+  height:105px;
+  flex:0 0 105px;
+  border-radius:13px;
+  object-fit:cover;
+}
+
+.saved-info{
+  min-width:0;
+  flex:1;
+  padding:3px 2px;
+}
+
+.saved-info small{
+  color:#78e08f;
+  font-size:8px;
+}
+
+.saved-info h3{
+  margin:6px 0;
+  color:#fff;
+  font-size:14px;
+}
+
+.saved-info p{
+  margin:0;
+  color:#69756f;
+  font-size:9px;
+}
+
+.saved-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.saved-bottom strong{
+  color:#fff;
+  font-size:13px;
+}
+
+.saved-bottom button{
+  border:1px solid rgba(120,224,143,.2);
+  border-radius:9px;
+  padding:7px 10px;
+  background:#122018;
+  color:#78e08f;
+  font-size:9px;
+  font-weight:800;
+}
+
+</style>
