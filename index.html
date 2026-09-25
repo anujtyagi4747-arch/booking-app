@@ -10982,3 +10982,88 @@ img{
 }
 
 </style>
+<!-- ================= PART 37 : FINAL CLOSE ================= -->
+
+<script>
+
+/* ---------- FINAL DATA SYNC ---------- */
+
+(function(){
+
+  function finalRefresh(){
+
+    try{
+
+      if(
+        typeof refreshProfile === "function"
+      ){
+        refreshProfile();
+      }
+
+      if(
+        typeof updateHeartStates === "function"
+      ){
+        updateHeartStates();
+      }
+
+      if(
+        typeof loadMyBooking === "function"
+      ){
+        loadMyBooking();
+      }
+
+      if(
+        typeof loadSavedStays === "function"
+      ){
+        loadSavedStays();
+      }
+
+    }catch(error){
+
+      console.log(
+        "PahadiStay ready"
+      );
+
+    }
+
+  }
+
+
+  /* ---------- PAGE READY ---------- */
+
+  if(
+    document.readyState === "loading"
+  ){
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      finalRefresh
+    );
+
+  }else{
+
+    finalRefresh();
+
+  }
+
+
+  /* ---------- FINAL APP READY ---------- */
+
+  window.PahadiStay =
+    window.PahadiStay || {};
+
+  window.PahadiStay.appReady =
+    true;
+
+  window.PahadiStay.version =
+    "1.0.0";
+
+
+})();
+
+</script>
+
+</div>
+
+</body>
+</html>
